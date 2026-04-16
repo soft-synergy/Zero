@@ -78,60 +78,60 @@ export interface StepPageTranslations {
   consent_text: string
   consent_privacy_link: string
   char_count: (n: number) => string
-  age_insight_20s_men_headline: string
-  age_insight_20s_men_body: string
-  age_insight_20s_women_headline: string
-  age_insight_20s_women_body: string
-  age_insight_30s_men_headline: string
-  age_insight_30s_men_body: string
-  age_insight_30s_women_headline: string
-  age_insight_30s_women_body: string
-  age_insight_40s_men_headline: string
-  age_insight_40s_men_body: string
-  age_insight_40s_women_headline: string
-  age_insight_40s_women_body: string
-  age_insight_50s_men_headline: string
-  age_insight_50s_men_body: string
-  age_insight_50s_women_headline: string
-  age_insight_50s_women_body: string
-  age_insight_60s_men_headline: string
-  age_insight_60s_men_body: string
-  age_insight_60s_women_headline: string
-  age_insight_60s_women_body: string
-  age_insight_70s_men_headline: string
-  age_insight_70s_men_body: string
-  age_insight_70s_women_headline: string
-  age_insight_70s_women_body: string
+  age_insight_20s_men_headline?: string
+  age_insight_20s_men_body?: string
+  age_insight_20s_women_headline?: string
+  age_insight_20s_women_body?: string
+  age_insight_30s_men_headline?: string
+  age_insight_30s_men_body?: string
+  age_insight_30s_women_headline?: string
+  age_insight_30s_women_body?: string
+  age_insight_40s_men_headline?: string
+  age_insight_40s_men_body?: string
+  age_insight_40s_women_headline?: string
+  age_insight_40s_women_body?: string
+  age_insight_50s_men_headline?: string
+  age_insight_50s_men_body?: string
+  age_insight_50s_women_headline?: string
+  age_insight_50s_women_body?: string
+  age_insight_60s_men_headline?: string
+  age_insight_60s_men_body?: string
+  age_insight_60s_women_headline?: string
+  age_insight_60s_women_body?: string
+  age_insight_70s_men_headline?: string
+  age_insight_70s_men_body?: string
+  age_insight_70s_women_headline?: string
+  age_insight_70s_women_body?: string
   // BMI card
-  bmi_card_title: string
-  bmi_cat_underweight: string
-  bmi_cat_normal: string
-  bmi_cat_overweight: string
-  bmi_cat_obese: string
-  bmi_healthy_label: string
-  bmi_risks_label: string
-  bmi_desc_underweight: string
-  bmi_desc_normal: string
-  bmi_desc_risks: string
-  bmi_label_lifestyle: string
-  bmi_label_exercise: string
-  bmi_label_workout: string
-  bmi_lifestyle_active: string
-  bmi_lifestyle_feet: string
-  bmi_lifestyle_home: string
-  bmi_lifestyle_sedentary: string
-  bmi_exercise_often: string
-  bmi_exercise_sometimes: string
-  bmi_exercise_sort_of: string
-  bmi_exercise_no: string
-  bmi_workout_high: string
-  bmi_workout_moderate: string
-  bmi_workout_low: string
+  bmi_card_title?: string
+  bmi_cat_underweight?: string
+  bmi_cat_normal?: string
+  bmi_cat_overweight?: string
+  bmi_cat_obese?: string
+  bmi_healthy_label?: string
+  bmi_risks_label?: string
+  bmi_desc_underweight?: string
+  bmi_desc_normal?: string
+  bmi_desc_risks?: string
+  bmi_label_lifestyle?: string
+  bmi_label_exercise?: string
+  bmi_label_workout?: string
+  bmi_lifestyle_active?: string
+  bmi_lifestyle_feet?: string
+  bmi_lifestyle_home?: string
+  bmi_lifestyle_sedentary?: string
+  bmi_exercise_often?: string
+  bmi_exercise_sometimes?: string
+  bmi_exercise_sort_of?: string
+  bmi_exercise_no?: string
+  bmi_workout_high?: string
+  bmi_workout_moderate?: string
+  bmi_workout_low?: string
   // Weight goal step
-  weight_goal_headline: (goalDisplay: string) => string
-  weight_goal_estimated: string
-  weight_goal_by: string
-  weight_chart_label: string
+  weight_goal_headline?: (goalDisplay: string) => string
+  weight_goal_estimated?: string
+  weight_goal_by?: string
+  weight_chart_label?: string
 }
 
 export interface ResultTranslations {
@@ -281,7 +281,7 @@ const ui: Record<LangCode, UITranslations> = {
 }
 
 const stepPage: Record<LangCode, StepPageTranslations> = {
-  en: {
+    en: {
       error_range: (mn, mx, u) => "Please enter a value between __MIN__ and __MAX__ __UNIT__".replace("__MIN__", String(mn)).replace("__MAX__", String(mx)).replace("__UNIT__", String(u)),
       bmi_checking: "Calculating your BMI. This helps us create the right plan for your body.",
       bmi_underweight: (b) => "Your BMI is __BMI__, which is below the usual range".replace("__BMI__", String(b)),
@@ -301,6 +301,58 @@ const stepPage: Record<LangCode, StepPageTranslations> = {
       consent_text: "I allow my health data to be used to create a personalized plan.",
       consent_privacy_link: "Privacy Policy",
       char_count: (n) => "__N__/20".replace("__N__", String(n)),
+      age_insight_20s_men_headline: 'Build a Strong Base',
+      age_insight_20s_men_body: 'Reaching and keeping a healthy weight can help you build strength and create a strong base for the future.',
+      age_insight_20s_women_headline: 'Build Healthy Habits Early',
+      age_insight_20s_women_body: 'Working toward a healthy weight can help you feel healthier, stronger, and more confident in your body.',
+      age_insight_30s_men_headline: 'Stay Strong and Active',
+      age_insight_30s_men_body: 'Keeping a healthy weight can support your strength and energy as work and life become more demanding.',
+      age_insight_30s_women_headline: 'Support Your Health',
+      age_insight_30s_women_body: 'Working toward a healthy weight can help you build healthier habits and feel stronger in your body.',
+      age_insight_40s_men_headline: 'Keep Your Strength',
+      age_insight_40s_men_body: 'Staying at a healthy weight can help you keep your muscle, energy, and overall health.',
+      age_insight_40s_women_headline: 'Feel Strong and Full of Energy',
+      age_insight_40s_women_body: 'Working toward a healthy weight can help you feel more active, support your health, and improve your energy.',
+      age_insight_50s_men_headline: 'Support Your Health',
+      age_insight_50s_men_body: 'Reaching and keeping a healthy weight can help you protect your health, strength, and energy for the years ahead.',
+      age_insight_50s_women_headline: 'Support Your Health and Energy',
+      age_insight_50s_women_body: 'Understanding your body and working toward a healthy weight can help support your health and energy over time.',
+      age_insight_60s_men_headline: 'Stay Independent',
+      age_insight_60s_men_body: 'Keeping a healthy weight can help you stay strong, active, and more independent.',
+      age_insight_60s_women_headline: 'Take Care of Your Health',
+      age_insight_60s_women_body: 'Working toward a healthy weight can help you support your health, strength, and well-being as you get older.',
+      age_insight_70s_men_headline: 'Keep Moving with Confidence',
+      age_insight_70s_men_body: 'Staying at a healthy weight can help support your health, strength, and independence for longer.',
+      age_insight_70s_women_headline: 'Stay Strong and Well',
+      age_insight_70s_women_body: 'Working toward a healthy weight can help support your health, strength, and independence over time.',
+      bmi_card_title: 'Body Mass Index (BMI)',
+      bmi_cat_underweight: 'Underweight',
+      bmi_cat_normal: 'Normal',
+      bmi_cat_overweight: 'Overweight',
+      bmi_cat_obese: 'Obese',
+      bmi_healthy_label: 'Healthy BMI:',
+      bmi_risks_label: 'Risks of unhealthy BMI:',
+      bmi_desc_underweight: 'Your BMI is below the healthy range. Building strength and healthy eating habits will be your priority.',
+      bmi_desc_normal: 'Good starting BMI to tone up and get your dream body.',
+      bmi_desc_risks: 'High blood pressure, increased risk of heart attack, stroke, type 2 diabetes, chronic back and joint pain.',
+      bmi_label_lifestyle: 'Lifestyle',
+      bmi_label_exercise: 'Exercise',
+      bmi_label_workout: 'Workout frequency',
+      bmi_lifestyle_active: 'Very active',
+      bmi_lifestyle_feet: 'Lightly active',
+      bmi_lifestyle_home: 'Home-based',
+      bmi_lifestyle_sedentary: 'Mostly sedentary',
+      bmi_exercise_often: 'Regular exercise',
+      bmi_exercise_sometimes: 'Moderate',
+      bmi_exercise_sort_of: 'Light activity',
+      bmi_exercise_no: 'Low activity',
+      bmi_workout_high: 'High',
+      bmi_workout_moderate: 'Moderate',
+      bmi_workout_low: 'Low',
+      weight_goal_headline: (g: string) => `With the Personalized Zero Carbs Challenge, you can work toward your goal weight of __G__`.replace("__G__", g),
+      weight_goal_estimated: 'Estimated goal',
+      weight_goal_by: 'by',
+      weight_chart_label: 'Weight journey',
     },
   lt: {
       error_range: (mn, mx, u) => "Įveskite reikšmę nuo __MIN__ iki __MAX__ __UNIT__".replace("__MIN__", String(mn)).replace("__MAX__", String(mx)).replace("__UNIT__", String(u)),
