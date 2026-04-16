@@ -204,7 +204,7 @@ export const EN: Copy = {
   },
 }
 
-export function localize(base, overrides) {
+export function localize(base: Copy, overrides: Partial<Copy>) {
   return {
     ...base,
     ...overrides,
