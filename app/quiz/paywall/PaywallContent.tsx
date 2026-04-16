@@ -97,9 +97,13 @@ function getCurrentVisual(gender: 'men' | 'women' | null, bmiCat: BmiCategory) {
   return { image: '/images/man/body_type_men_before (normal).png', bodyFat: 'Normal', level: 'Intermediate', bars: 2 }
 }
 
-function getGoalVisual(target: BmiCategory): GoalVisual {
+function getGoalVisual(current: BmiCategory, target: BmiCategory): GoalVisual {
   if (target === 'Underweight' || target === 'Normal') return 'athletic'
   if (target === 'Overweight') return 'normal'
+  
+  // If target is Obese, but they started Obese, let's at least show the normal (overweight image) visual to present some progress!
+  if (current === 'Obese') return 'normal'
+  
   return 'overweight'
 }
 
@@ -109,9 +113,9 @@ function getTargetVisual(gender: 'men' | 'women' | null, visual: GoalVisual) {
       return { image: '/images/woman/results_bmi_card_normal_woman.png', bodyFat: 'Low', level: 'Advanced', bars: 3 }
     }
     if (visual === 'normal') {
-      return { image: '/images/woman/body_type_women_before_normal.png', bodyFat: 'Normal', level: 'Intermediate', bars: 2 }
+      return { image: '/images/woman/results_bmi_card_normal_woman.png', bodyFat: 'Normal', level: 'Intermediate', bars: 2 }
     }
-    return { image: '/images/woman/body_type_women_before_normal.png', bodyFat: 'High', level: 'Beginner', bars: 1 }
+    return { image: '/images/woman/body type_BMI is in a high range..png', bodyFat: 'High', level: 'Beginner', bars: 1 }
   }
 
   if (visual === 'athletic') {
@@ -253,7 +257,7 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
   const targetCat = getBMICategory(targetBmi) as BmiCategory
 
   const currentVisual = getCurrentVisual(gender, currentCat)
-  const targetVisual = getTargetVisual(gender, getGoalVisual(targetCat))
+  const targetVisual = getTargetVisual(gender, getGoalVisual(currentCat, targetCat))
   const currentBodyFatLabel =
     currentVisual.bodyFat === 'High' ? copy.bodyFatHigh : currentVisual.bodyFat === 'Low' ? copy.bodyFatLow : copy.bodyFatNormal
   const targetBodyFatLabel =

@@ -560,6 +560,7 @@ function buildPaywallCopy(flat: Record<string, string>): Copy {
     secretGiftBody: paywall.secretGiftBody ?? '',
     giftSectionTitle: paywall.giftSectionTitle ?? '',
     giftSectionHighlight: paywall.giftSectionHighlight ?? '',
+    giftSectionWorth: paywall.giftSectionWorth ?? '',
     giftSectionBody: paywall.giftSectionBody ?? '',
     guaranteePrefix: paywall.guaranteePrefix ?? '',
     personalHeading: (name: string) => (paywall.personalHeading ?? '').replace('__NAME__', name),
