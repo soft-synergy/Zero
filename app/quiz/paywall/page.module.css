@@ -112,7 +112,7 @@
 .beforeAfterTop {
   display: grid;
   grid-template-columns: 1fr 92px 1fr;
-  align-items: end;
+  align-items: flex-end;
   gap: 4px;
   min-height: 250px;
   padding: 16px 16px 0;
@@ -121,7 +121,7 @@
 .beforeAfterFigure {
   position: relative;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   min-height: 100%;
 }

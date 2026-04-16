@@ -171,7 +171,7 @@ export interface WellnessTranslations {
   motivation: { high: string; moderate: string; low: string }
 }
 
-export interface LoadingTranslations {
+export type LoadingTranslations = {
   header_label: string
   title: string
   [key: string]: string

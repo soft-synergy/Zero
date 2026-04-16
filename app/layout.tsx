@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import StoreHydration from '@/components/StoreHydration/StoreHydration'
 import { PAGE_META } from '@/lib/quiz-config'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-dm-sans',
-  weight: ['400', '500', '600', '700', '800'],
-  display: 'swap',
-  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-})
+// Using a system font stack instead of next/font/google to avoid build-time fetch errors (ETIMEDOUT)
+const interVariable = "--font-dm-sans";
+const interFallback = "Inter, 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+
 
 export const metadata: Metadata = {
   title: PAGE_META.title,
@@ -19,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" style={{ [interVariable as any]: interFallback }}>
       <head>
         {/* Read lang from localStorage BEFORE React renders — eliminates lang flash on refresh */}
         <script dangerouslySetInnerHTML={{ __html: `
