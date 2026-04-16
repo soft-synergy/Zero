@@ -1,0 +1,45 @@
+'use client'
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+
+// Add language codes here as you add translations: 'en' | 'pl' | 'cz'
+export type LangCode =
+  | 'en'
+  | 'lt'
+  | 'lv'
+  | 'ro'
+  | 'cz'
+  | 'dk'
+  | 'gr'
+  | 'hu'
+  | 'hr'
+  | 'il'
+  | 'jp'
+  | 'ru'
+  | 'sk'
+  | 'tw'
+
+function setCookie(lang: LangCode) {
+  if (typeof document !== 'undefined') {
+    document.cookie = `lang=${lang};path=/;max-age=31536000;SameSite=Lax`
+  }
+}
+
+interface LangState {
+  lang: LangCode
+  setLang: (lang: LangCode) => void
+}
+
+export const useLangStore = create<LangState>()(
+  persist(
+    (set) => ({
+      // Fixed default so SSR and the first client pass match; real value loads via persist.rehydrate().
+      lang: 'en',
+      setLang: (lang) => {
+        set({ lang })
+        setCookie(lang)
+      },
+    }),
+    { name: 'quiz-lang', skipHydration: true }
+  )
+)

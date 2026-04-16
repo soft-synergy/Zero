@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  quiz-app:
+    build: .
+    container_name: quiz-app
+    restart: always
+    ports:
+      - "3401:3000"
+    environment:
+      - ADMIN_PASSWORD=1!Qaa2@Wss
+      - NODE_ENV=production
+    volumes:
+      - ./translations-data:/app/translations-data

@@ -1,0 +1,11 @@
+node_modules
+.next
+.env*.local
+npm-debug.log*
+tsconfig.tsbuildinfo
+.claude/
+/*.png
+/*.jpg
+/*.jpeg
+/*.html
+# translations-data/ (removed to include initial translations in the repo)

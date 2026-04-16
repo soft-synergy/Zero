@@ -1,0 +1,165 @@
+/* ─── CARD SHELL ────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: visible;
+  background: #fff;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 12px 40px rgba(0, 0, 0, 0.10);
+}
+
+/* ─── HEADER ────────────────────────────────────────────────────── */
+.header {
+  background: var(--cat-bg, #eaf3ea);
+  border-radius: 20px 20px 0 0;
+  padding: 24px 24px 0;
+  text-align: center;
+  transition: background 0.4s ease;
+}
+
+.bmiTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-mid, #555);
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+}
+
+.bmiLabel,
+.bmiCategory {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  transition: color 0.4s ease;
+}
+
+/* ─── GAUGE ─────────────────────────────────────────────────────── */
+.gaugeWrap {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ─── BODY ──────────────────────────────────────────────────────── */
+.body {
+  position: relative;
+  padding: 20px 24px 24px;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-text-mid, #555);
+  margin-bottom: 20px;
+  max-width: 58%;
+}
+
+.description strong {
+  color: var(--color-text, #1a1a18);
+  font-weight: 700;
+}
+
+/* ─── INFO ROWS ─────────────────────────────────────────────────── */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 58%;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.infoIconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--color-card, #eeecea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.infoLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary, #a0a09a);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.infoValue {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text, #1a1a18);
+  line-height: 1.3;
+}
+
+/* ─── PERSON PHOTO ──────────────────────────────────────────────── */
+.photoWrap {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 42%;
+  height: 260px;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 20px 16px 0;
+  }
+
+  .bmiCategory {
+    font-size: 24px;
+  }
+
+  .body {
+    padding: 16px 16px 18px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .description {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .infoList {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .photoWrap {
+    position: static;
+    width: 100%;
+    height: 190px;
+    margin-top: 4px;
+  }
+}
