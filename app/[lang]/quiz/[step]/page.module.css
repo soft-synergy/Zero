@@ -14,14 +14,14 @@
 }
 
 .question {
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 800;
   color: var(--color-text);
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.15;
   margin-top: 32px;
   margin-bottom: 28px;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
 }
 
 .subtitle {
@@ -468,10 +468,10 @@
 }
 
 .ageTitle {
-  font-size: clamp(24px, 4.5vw, 36px);
+  font-size: 44px;
   font-weight: 800;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.15;
   margin: 0 0 10px;
 }
@@ -551,7 +551,7 @@
 
 @media (max-width: 480px) {
   .question {
-    font-size: 19px;
+    font-size: 36px;
   }
 
   .numberInput {
@@ -572,7 +572,7 @@
   }
 
   .ageTitle {
-    font-size: 26px;
+    font-size: 36px;
   }
 
   .ageMain {
