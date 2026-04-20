@@ -55,7 +55,7 @@ const PLANS = [
     renewalPrice: 'USD 68.99',
     renewalPeriod: '3 months',
     tag: null,
-    gift: true,
+    gift: false,
   },
 ] as const
 
@@ -155,20 +155,7 @@ function ProgressBars({ count }: { count: number }) {
   )
 }
 
-function GiftIcon() {
-  return (
-    <svg viewBox="0 0 120 120" className={styles.giftIcon} aria-hidden="true">
-      <rect x="16" y="46" width="88" height="56" rx="4" fill="#4b8176" />
-      <rect x="56" y="38" width="12" height="64" fill="#0d5a4d" />
-      <rect x="8" y="38" width="104" height="14" rx="2" fill="#4b8176" />
-      <path d="M59 39c-8-17-33-23-31-1 2 13 20 15 31 1Z" fill="#0d5a4d" />
-      <path d="M61 39c8-17 33-23 31-1-2 13-20 15-31 1Z" fill="#0d5a4d" />
-      {[18, 30, 90, 102, 60].map((cx, idx) => (
-        <circle key={idx} cx={cx} cy={idx % 2 === 0 ? 18 : 28} r={idx === 4 ? 5 : 3} fill="#0d5a4d" />
-      ))}
-    </svg>
-  )
-}
+
 
 function SealIcon() {
   return (
@@ -181,30 +168,7 @@ function SealIcon() {
   )
 }
 
-function PhoneMockup({ copy }: { copy: (typeof COPY)[LangCode] }) {
-  return (
-    <div className={styles.phoneMockup} aria-hidden="true">
-      <div className={styles.phoneScreen}>
-        <img src="/images/salmon.png" alt="" className={styles.phoneMealImage} />
-        <div className={styles.phoneContent}>
-          <span className={styles.phoneMealTag}>{copy.phoneMealTag}</span>
-          <h3>{copy.phoneMealTitle}</h3>
-          <p>{copy.phoneMealMeta}</p>
-          <div className={styles.phoneTabs}>
-            <span className={styles.phoneTabActive}>{copy.phoneIngredientsTab}</span>
-            <span>{copy.phoneNutritionTab}</span>
-          </div>
-          <div className={styles.phoneList}>
-            <div><span>{copy.phoneIngredient1}</span><span>{copy.phoneIngredient1Qty}</span></div>
-            <div><span>{copy.phoneIngredient2}</span><span>{copy.phoneIngredient2Qty}</span></div>
-            <div><span>{copy.phoneIngredient3}</span><span>{copy.phoneIngredient3Qty}</span></div>
-            <div><span>{copy.phoneIngredient4}</span><span>{copy.phoneIngredient4Qty}</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+
 
 export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: string }) {
   const router = useRouter()
@@ -374,7 +338,6 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
                             <span className={styles.planPriceOld}>{pricing.oldPrice}</span>
                             <span>{pricing.price}</span>
                           </p>
-                          {plan.gift && <span className={styles.giftPill}>{copy.secretGiftPill}</span>}
                         </div>
                       </div>
                       <p className={styles.planDayPrice}>{pricing.perDay}</p>
@@ -400,22 +363,6 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
             <div className={styles.moneyBackRow}>
               {copy.moneyBackRow}
             </div>
-            <p className={styles.legalCopy}>{legalCopy}</p>
-
-            {selected === '3m' && (
-              <div className={styles.secretGiftPanel}>
-                <p className={styles.secretGiftLead}>{copy.secretGiftLead}</p>
-                <div className={styles.secretGiftCard}>
-                  <div className={styles.secretGiftArt}>
-                    <GiftIcon />
-                  </div>
-                  <div>
-                    <h3>{copy.secretGiftTitle}</h3>
-                    <p>{copy.secretGiftBody}</p>
-                  </div>
-                </div>
-              </div>
-            )}
           </section>
         </section>
 
@@ -433,63 +380,10 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
                 </div>
               ))}
             </div>
-            <PhoneMockup copy={copy} />
           </div>
         </section>
 
-        <section className={styles.ratingsSection}>
-          <div className={styles.ratingsInner}>
-            <h2>{copy.ratingsHeadline}</h2>
-            <p>{copy.ratingsSubline}</p>
-            <div className={styles.ratingsGrid}>
-              <div className={styles.ratingCard}>
-                <strong>{lang === 'en' ? '4.5' : '4,5'}</strong>
-                <span>★★★★★</span>
-                <p>{copy.ratingsAppStore}</p>
-              </div>
-              <div className={styles.ratingCard}>
-                <strong>{lang === 'en' ? '4.5' : '4,5'}</strong>
-                <span>★★★★★</span>
-                <p>{copy.ratingsPlayStore}</p>
-              </div>
-              <div className={styles.quoteCard}>
-                <span>{copy.ratingsQuote}</span>
-                <strong>{copy.ratingsQuoteSource}</strong>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section className={styles.storiesSection}>
-          <div className={styles.storiesInner}>
-            <h2>{copy.storiesHeading}</h2>
-            <p>{copy.storiesSubheading}</p>
-            <div className={styles.storyGrid}>
-              {stories.map((story) => (
-                <article key={story.name} className={styles.storyCard}>
-                  <img src={story.photo} alt={story.name} className={styles.storyImage} />
-                  <div className={styles.storyBody}>
-                    <h3>{story.name}</h3>
-                    <span className={styles.storyVerified}>{copy.verifiedCustomer}</span>
-                    <p>{story.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.giftBand}>
-          <div className={styles.bandInner}>
-            <div className={styles.giftCopy}>
-              <h2>{copy.giftSectionTitle} <span>{copy.giftSectionHighlight}</span>{copy.giftSectionWorth}</h2>
-              <p>{copy.giftSectionBody}</p>
-            </div>
-            <div className={styles.giftArtLarge}>
-              <GiftIcon />
-            </div>
-          </div>
-        </section>
 
         <section className={styles.guaranteeSection}>
           <div className={styles.guaranteeCard}>

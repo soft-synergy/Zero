@@ -46,7 +46,7 @@ interface Props {
 }
 
 export default function RingProgress({
-  durationMs = 6000,
+  durationMs = 9000,
   onComplete,
 }: Props) {
   const arcRef = useRef<SVGCircleElement>(null)

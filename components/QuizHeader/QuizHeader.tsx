@@ -49,26 +49,37 @@ export default function QuizHeader({
     router.back()
   }
 
+  const stepLabel = hideProgress ? '' : (label ?? (step && totalSteps ? `${step} / ${totalSteps}` : ''))
+
   return (
     <header className={overlay ? styles.headerOverlay : styles.header}>
       <div className={styles.headerTop}>
-        {showBack ? (
-          <button
-            className={styles.btnBack}
-            onClick={handleBack}
-            aria-label={t.go_back}
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        ) : (
-          <div className={styles.headerSpacer} />
-        )}
-        <span className={styles.stepCounter} aria-live="polite">
-          {hideProgress ? '' : (label ?? (step && totalSteps ? `${step} / ${totalSteps}` : ''))}
-        </span>
-        <div className={styles.headerSpacer} />
+        {/* Left: back button */}
+        <div className={styles.headerLeft}>
+          {showBack ? (
+            <button
+              className={styles.btnBack}
+              onClick={handleBack}
+              aria-label={t.go_back}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          ) : null}
+        </div>
+
+        {/* Center: logo */}
+        <div className={styles.headerCenter}>
+          <img src="/images/logo.png" alt="Logo" className={styles.logo} />
+        </div>
+
+        {/* Right: step counter */}
+        <div className={styles.headerRight}>
+          {stepLabel ? (
+            <span className={styles.stepCounter} aria-live="polite">{stepLabel}</span>
+          ) : null}
+        </div>
       </div>
       {!hideProgress && (
         <div

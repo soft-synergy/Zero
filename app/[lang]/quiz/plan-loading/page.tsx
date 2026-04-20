@@ -35,7 +35,7 @@ export default function PlanLoadingPage() {
       <QuizHeader label={t.header_label} showBack={false} hideProgress={true} />
       <main className={styles.main}>
         <div className={styles.content}>
-          <RingProgress durationMs={6000} onComplete={handleComplete} />
+          <RingProgress durationMs={9000} onComplete={handleComplete} />
           <h1 className={styles.planTitle}>{t.title}</h1>
         </div>
         <ReviewCarousel reviews={reviewsOverridden} />

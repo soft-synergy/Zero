@@ -99,7 +99,7 @@
 /* ─── LABEL ─────────────────────────────────────────────────── */
 .optionLabel {
   flex: 1;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.25;

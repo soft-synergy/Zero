@@ -55,6 +55,7 @@ export interface QuizStep {
 
 export const HEIGHT_STEP = 10
 export const WEIGHT_STEP = 11
+export const GOAL_WEIGHT_STEP = 12
 export const TOTAL_STEPS = 21
 export const QUIZ_PHASE1_END = 21
 
@@ -187,6 +188,7 @@ export const QUIZ_STEPS: QuizStep[] = [
     unit: 'lbs',
     placeholder: '150',
     validation: { min: 66, max: 600 },
+    showGoalCard: true,
   },
   {
     step: 13,

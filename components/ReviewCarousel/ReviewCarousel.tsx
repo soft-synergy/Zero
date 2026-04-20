@@ -85,7 +85,7 @@ export default function ReviewCarousel({ reviews: reviewsProp }: { reviews?: imp
         goTo(next)
         return next
       })
-    }, 4000)
+    }, 3000)
     return () => clearInterval(timer)
   }, [goTo, reviews.length])
 

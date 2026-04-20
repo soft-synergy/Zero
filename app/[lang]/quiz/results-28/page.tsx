@@ -43,14 +43,14 @@ function WeightCurve({ t }: { t: Results28Translations }) {
           {/* Area fill */}
           <path
             className={styles.chartArea}
-            d="M 30,28 C 80,28 100,65 140,90 C 180,115 210,138 255,150 C 278,156 292,159 308,160 L 308,165 L 30,165 Z"
+            d="M 30,28 C 70,28 90,78 125,78 C 160,78 180,120 210,120 C 245,120 275,152 305,152 L 305,165 L 30,165 Z"
             fill="url(#r28areaGrad)"
           />
 
-          {/* Curved line */}
+          {/* Curved line — same stepped style as WeightChart */}
           <path
             className={styles.chartLine}
-            d="M 30,28 C 80,28 100,65 140,90 C 180,115 210,138 255,150 C 278,156 292,159 308,160"
+            d="M 30,28 C 70,28 90,78 125,78 C 160,78 180,120 210,120 C 245,120 275,152 305,152"
             stroke="url(#r28lineGrad)"
             strokeWidth="3.5"
             strokeLinecap="round"
@@ -64,13 +64,13 @@ function WeightCurve({ t }: { t: Results28Translations }) {
 
           {/* Dot: mid (After 4 weeks) */}
           <g className={styles.dotMid}>
-            <circle cx="200" cy="130" r="7" fill="white" stroke="#F0B040" strokeWidth="2.5" />
+            <circle cx="210" cy="120" r="7" fill="white" stroke="#F0B040" strokeWidth="2.5" />
           </g>
 
           {/* Dot: end (Keeping it off) */}
           <g className={styles.dotEnd}>
-            <circle cx="308" cy="160" r="9" fill="#5CAA6F" stroke="#3d8f54" strokeWidth="2" />
-            <circle cx="308" cy="160" r="3.5" fill="white" />
+            <circle cx="305" cy="152" r="9" fill="#5CAA6F" stroke="#3d8f54" strokeWidth="2" />
+            <circle cx="305" cy="152" r="3.5" fill="white" />
           </g>
 
           {/* Label: Your weight */}
@@ -85,9 +85,9 @@ function WeightCurve({ t }: { t: Results28Translations }) {
 
           {/* Label: After 4 weeks */}
           <g className={styles.lblMid}>
-            <rect x="130" y="104" rx="8" ry="8" width="100" height="24" fill="white"
+            <rect x="152" y="96" rx="8" ry="8" width="116" height="24" fill="white"
               style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.13))' }} />
-            <text x="180" y="120" textAnchor="middle" fill="#C08A20"
+            <text x="210" y="112" textAnchor="middle" fill="#C08A20"
               fontFamily="var(--font-dm-sans),sans-serif" fontSize="11" fontWeight="700">
               {t.after_4_weeks}
             </text>
@@ -95,9 +95,9 @@ function WeightCurve({ t }: { t: Results28Translations }) {
 
           {/* Label: Keeping it off */}
           <g className={styles.lblEnd}>
-            <rect x="206" y="134" rx="8" ry="8" width="100" height="24" fill="white"
+            <rect x="200" y="128" rx="8" ry="8" width="103" height="24" fill="white"
               style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.13))' }} />
-            <text x="256" y="150" textAnchor="middle" fill="#3d8f54"
+            <text x="252" y="144" textAnchor="middle" fill="#3d8f54"
               fontFamily="var(--font-dm-sans),sans-serif" fontSize="11" fontWeight="700">
               {t.keeping_it_off}
             </text>

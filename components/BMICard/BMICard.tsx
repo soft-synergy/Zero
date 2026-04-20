@@ -139,7 +139,7 @@ function zoneStyle(from: number, to: number) {
 // ─── icon components ──────────────────────────────────────────────
 function IconLifestyle() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24">
       <circle cx="12" cy="7" r="3.5" fill="#e8a090" opacity=".9"/>
       <path d="M5 19c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="#e8a090" strokeWidth="2" strokeLinecap="round" fill="none" opacity=".7"/>
     </svg>
@@ -148,7 +148,7 @@ function IconLifestyle() {
 
 function IconExercise() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24">
       <rect x="2" y="11" width="4.5" height="2" rx="1" fill="#7ba7d4"/>
       <rect x="17.5" y="11" width="4.5" height="2" rx="1" fill="#7ba7d4"/>
       <rect x="6.5" y="9" width="2" height="6" rx="1" fill="#4a7fbf"/>
@@ -160,7 +160,7 @@ function IconExercise() {
 
 function IconWorkout() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24">
       <rect x="3" y="4" width="18" height="16" rx="3" stroke="#9b6fc4" strokeWidth="1.5" fill="none" opacity=".5"/>
       <rect x="8" y="2" width="2" height="4" rx="1" fill="#9b6fc4"/>
       <rect x="14" y="2" width="2" height="4" rx="1" fill="#9b6fc4"/>

@@ -1024,7 +1024,7 @@
   }
 
   .stickyTimerLabel {
-    font-size: 10px;
+    font-size: 11px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1032,20 +1032,25 @@
   }
 
   .stickyTimer strong {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .stickyCta {
     position: static;
     transform: none;
-    min-width: 110px;
-    font-size: 13px;
-    padding: 0 12px;
-    min-height: 36px;
+    min-width: 120px;
+    font-size: 14px;
+    padding: 0 14px;
+    min-height: 38px;
   }
 
   .heroSheet {
-    padding: 0 16px 24px;
+    padding: 0 12px 24px;
+    max-width: 100%;
+  }
+
+  .beforeAfterCard {
+    border-radius: 12px;
   }
 
   /* ── Before/After: keep side-by-side, smaller images ── */
@@ -1057,7 +1062,7 @@
   }
 
   .beforeAfterFigure img {
-    max-height: 130px;
+    max-height: 210px;
     max-width: 100%;
   }
 
@@ -1082,15 +1087,15 @@
   }
 
   .metricBlock h3 {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .heroTitle {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .heroSubtitle {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   /* ── Plan cards: keep horizontal layout ── */
@@ -1100,6 +1105,10 @@
 
   .planCard {
     padding: 14px 12px;
+  }
+
+  .planCardWithRibbon {
+    padding-top: 42px;
   }
 
   .planCardActive {
@@ -1127,24 +1136,39 @@
   }
 
   .planCard h3 {
-    font-size: 13px;
-    margin-bottom: 3px;
+    font-size: 17px;
+    margin-bottom: 4px;
   }
 
   .planPriceRow {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .planDayPrice {
-    font-size: 12px;
+    font-size: 14px;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   /* ── Legal copy: small text ── */
   .legalCopy {
-    font-size: 11px;
-    line-height: 1.52;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .primaryCta {
+    font-size: 19px;
+    min-height: 58px;
+  }
+
+  .purchaseSignals {
+    font-size: 13.5px;
+    gap: 12px;
+  }
+
+  .moneyBackRow {
+    font-size: 15px;
+    padding: 14px;
   }
 
   /* ── Secret gift: compact ── */
@@ -1171,7 +1195,13 @@
     font-size: 13px;
   }
 
-  /* ── Feature band ── */
+  /* ── Feature band & others ── */
+  .bandInner,
+  .storiesInner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
   .bandInner {
     gap: 18px;
     padding-top: 20px;
@@ -1183,16 +1213,16 @@
   .storiesInner h2,
   .guaranteeCard h2,
   .ratingsInner h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .featureItem h3 {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .featureItem p,
   .giftCopy p {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .phoneScreen {
@@ -1220,7 +1250,7 @@
 
   /* ── Stories ── */
   .storiesInner p {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 16px;
   }
 
@@ -1230,11 +1260,11 @@
   }
 
   .storyBody h3 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .storyBody p {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   /* ── Gift band: reduce art height ── */

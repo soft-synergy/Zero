@@ -1,9 +1,9 @@
 /* ─── CSS CUSTOM PROPERTIES ─────────────────────────────────────── */
 :root {
   /* Backgrounds */
-  --color-bg:               #f8f7f4;
+  --color-bg:               #ffffff;
   --color-bg-white:         #ffffff;
-  --color-bg-subtle:        #f8f7f4;
+  --color-bg-subtle:        #ffffff;
 
   /* Card */
   --color-card:             #eeecea;

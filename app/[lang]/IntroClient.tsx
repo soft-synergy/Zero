@@ -40,7 +40,7 @@ export default function IntroClient({ lang }: { lang: LangCode }) {
     <div className={styles.page}>
       <img
         className={styles.heroImage}
-        src="/images/step16_food_egg_avocado_nobg_best-removebg-preview.png"
+        src="/images/QUIZ-20 (1).png"
         alt=""
         aria-hidden="true"
       />

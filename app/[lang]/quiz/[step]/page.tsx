@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useRouter, useParams, usePathname } from 'next/navigation'
 import styles from './page.module.css'
 import interStyles from './interstitial.module.css'
-import { QUIZ_STEPS, TOTAL_STEPS, QUIZ_PHASE1_END, HEIGHT_STEP, WEIGHT_STEP } from '@/lib/quiz-data'
+import { QUIZ_STEPS, TOTAL_STEPS, QUIZ_PHASE1_END, HEIGHT_STEP, WEIGHT_STEP, GOAL_WEIGHT_STEP } from '@/lib/quiz-data'
 import { useQuizStore } from '@/lib/quiz-store'
 import { useLangStore } from '@/lib/lang-store'
 import { getTranslatedSteps, useStepPageT, useIntroT } from '@/lib/i18n'
@@ -202,23 +202,25 @@ function StepContent({
           <h1 className={styles.ageTitle}>{introT.headline}</h1>
           <p className={styles.ageSubtitle}>{introT.age_question}</p>
         </div>
-        <div className={styles.ageGrid}>
-          {stepData.options.map((opt) => {
-            const img = gender === 'men' ? (opt.imageMen ?? opt.imageWomen) : (opt.imageWomen ?? opt.imageMen)
-            return (
-              <button
-                key={opt.id}
-                type="button"
-                className={styles.ageCard}
-                onClick={() => handleToggle(opt.id)}
-              >
-                <div className={styles.ageCardArch}>
-                  {img && <img src={img} alt="" aria-hidden="true" className={styles.ageCardImg} />}
-                </div>
-                <span className={styles.ageCardLabel}>{opt.label}</span>
-              </button>
-            )
-          })}
+        <div className={styles.ageGridWrap}>
+          <div className={styles.ageGrid}>
+            {stepData.options.map((opt) => {
+              const img = gender === 'men' ? (opt.imageMen ?? opt.imageWomen) : (opt.imageWomen ?? opt.imageMen)
+              return (
+                <button
+                  key={opt.id}
+                  type="button"
+                  className={styles.ageCard}
+                  onClick={() => handleToggle(opt.id)}
+                >
+                  <div className={styles.ageCardArch}>
+                    {img && <img src={img} alt="" aria-hidden="true" className={styles.ageCardImg} />}
+                  </div>
+                  <span className={styles.ageCardLabel}>{opt.label}</span>
+                </button>
+              )
+            })}
+          </div>
         </div>
       </main>
     )
@@ -276,8 +278,8 @@ function StepContent({
   // ── Weight goal projection ──────────────────────────────────────────────────
   if (stepData.type === 'weight-goal') {
     const rawCurrent = String(answers[11] ?? '')
-    const rawGoal    = String(answers[12] ?? '')
-    const unit       = weightUnit ?? 'lbs'
+    const rawGoal = String(answers[12] ?? '')
+    const unit = weightUnit ?? 'lbs'
 
     // Answers for weight steps are already stored in canonical lbs.
     // Do not convert again based on display unit, otherwise values get multiplied.
@@ -298,10 +300,10 @@ function StepContent({
 
     return (
       <>
-        <main className={interStyles.main} style={{ gap: 16, paddingTop: 32, paddingBottom: 20 }}>
+        <main className={interStyles.main} style={{ gap: 16, paddingTop: 100, paddingBottom: 20 }}>
           <div style={{ textAlign: 'center', width: 'calc(100% - 40px)', maxWidth: 540 }}>
-            <p style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.45, color: 'var(--color-text)', margin: 0 }}
-              dangerouslySetInnerHTML={{ __html: t.weight_goal_headline(`<span style="color:var(--color-primary)">${goalDisplay}</span>`) }}
+            <p style={{ fontSize: 26, fontWeight: 800, lineHeight: 1.3, color: 'var(--color-text)', margin: 0, letterSpacing: '-0.02em' }}
+              dangerouslySetInnerHTML={{ __html: t.weight_goal_headline(`<span style="display:block;font-size:20px;font-weight:700;margin-top:6px;letter-spacing:-0.01em;color:var(--color-primary)">${goalDisplay}</span>`) }}
             />
           </div>
 
@@ -344,21 +346,21 @@ function StepContent({
     const routineAns = String(answers[3] ?? '')
     const lifestyle =
       routineAns === 'active' ? t.bmi_lifestyle_active
-      : routineAns === 'feet' ? t.bmi_lifestyle_feet
-      : routineAns === 'home' ? t.bmi_lifestyle_home
-      : t.bmi_lifestyle_sedentary
+        : routineAns === 'feet' ? t.bmi_lifestyle_feet
+          : routineAns === 'home' ? t.bmi_lifestyle_home
+            : t.bmi_lifestyle_sedentary
 
     const exerciseAns = String(answers[5] ?? '')
     const exercise =
       exerciseAns === 'often' ? t.bmi_exercise_often
-      : exerciseAns === 'sometimes' ? t.bmi_exercise_sometimes
-      : exerciseAns === 'sort-of' ? t.bmi_exercise_sort_of
-      : t.bmi_exercise_no
+        : exerciseAns === 'sometimes' ? t.bmi_exercise_sometimes
+          : exerciseAns === 'sort-of' ? t.bmi_exercise_sort_of
+            : t.bmi_exercise_no
 
     const workoutFreq =
       exerciseAns === 'often' ? t.bmi_workout_high
-      : exerciseAns === 'sometimes' ? t.bmi_workout_moderate
-      : t.bmi_workout_low
+        : exerciseAns === 'sometimes' ? t.bmi_workout_moderate
+          : t.bmi_workout_low
 
     return (
       <>
@@ -451,9 +453,9 @@ function StepContent({
       const unit = inputUnit || stepData.unit || ''
       if (inputNum < min || inputNum > max) return t.error_range(displayMin, displayMax, unit)
     }
-    if (stepData.showGoalCard) {
+    if (stepNum === GOAL_WEIGHT_STEP) {
       const currentLbs = Number(answers[WEIGHT_STEP])
-      if (currentLbs && inputNum >= currentLbs) return t.goal_weight_too_high
+      if (currentLbs > 0 && inputNum >= currentLbs) return t.goal_weight_too_high
     }
     return null
   })()
@@ -461,8 +463,8 @@ function StepContent({
   const baseCanContinue = isInput
     ? isValidInput && !inputError
     : isTextInput ? isValidText
-    : isDateInput ? (!!dateValue || !!stepData.skippable)
-    : selected.length > 0
+      : isDateInput ? (!!dateValue || !!stepData.skippable)
+        : selected.length > 0
   const canContinue = stepData.requiresConsent ? (baseCanContinue && consentChecked) : baseCanContinue
 
   if (isTargetZones && stepData.options) {
@@ -599,9 +601,9 @@ function StepContent({
               {stepData.showBMICard && (() => {
                 const cat = liveBMI ? getBMICategory(liveBMI) : null
                 const catClass = cat === 'Underweight' ? styles.bmiCardUnderweight
-                  : cat === 'Normal'      ? styles.bmiCardNormal
-                  : cat === 'Overweight'  ? styles.bmiCardOverweight
-                  : cat === 'Obese'       ? styles.bmiCardObese : ''
+                  : cat === 'Normal' ? styles.bmiCardNormal
+                    : cat === 'Overweight' ? styles.bmiCardOverweight
+                      : cat === 'Obese' ? styles.bmiCardObese : ''
                 return (
                   <div className={`${styles.bmiLiveCard} ${catClass} ${liveBMI ? styles.bmiLiveCardVisible : ''}`}>
                     {liveBMI && cat ? (
@@ -615,15 +617,15 @@ function StepContent({
                         <div className={styles.bmiCardContent}>
                           <p className={styles.bmiCardTitle}>
                             {cat === 'Underweight' && t.bmi_underweight(liveBMI.toFixed(1))}
-                            {cat === 'Normal'      && t.bmi_normal(liveBMI.toFixed(1))}
-                            {cat === 'Overweight'  && t.bmi_overweight(liveBMI.toFixed(1))}
-                            {cat === 'Obese'       && t.bmi_obese(liveBMI.toFixed(1))}
+                            {cat === 'Normal' && t.bmi_normal(liveBMI.toFixed(1))}
+                            {cat === 'Overweight' && t.bmi_overweight(liveBMI.toFixed(1))}
+                            {cat === 'Obese' && t.bmi_obese(liveBMI.toFixed(1))}
                           </p>
                           <p className={styles.bmiCardBody}>
                             {cat === 'Underweight' && t.bmi_underweight_body}
-                            {cat === 'Normal'      && t.bmi_normal_body}
-                            {cat === 'Overweight'  && t.bmi_overweight_body}
-                            {cat === 'Obese'       && t.bmi_obese_body}
+                            {cat === 'Normal' && t.bmi_normal_body}
+                            {cat === 'Overweight' && t.bmi_overweight_body}
+                            {cat === 'Obese' && t.bmi_obese_body}
                           </p>
                         </div>
                       </>
@@ -635,45 +637,22 @@ function StepContent({
               })()}
 
               {stepData.showGoalCard && (() => {
-                const heightCm = Number(answers[HEIGHT_STEP])
-                const heightM = heightCm / 100
-                const minHealthyLbs = heightM > 0 ? Math.round(18.5 * heightM * heightM / 0.453592) : 0
-                const maxHealthyLbs = heightM > 0 ? Math.round(24.9 * heightM * heightM / 0.453592) : 0
-                const displayMinW = inputUnit === 'kg' ? Math.round(minHealthyLbs * 0.453592) : minHealthyLbs
-                const displayMaxW = inputUnit === 'kg' ? Math.round(maxHealthyLbs * 0.453592) : maxHealthyLbs
-                const unit = inputUnit || 'lbs'
+                const visibleAnalysis = goalAnalysis?.key === 'too-low' ? null : goalAnalysis
                 return (
-                  <div className={`${styles.goalCard} ${goalAnalysis?.key === 'too-low' ? styles.goalCardOutOfRange : ''} ${goalAnalysis ? styles.goalCardVisible : ''}`}>
-                    {goalAnalysis?.key === 'too-low' ? (
+                  <div className={`${styles.goalCard} ${visibleAnalysis ? styles.goalCardVisible : ''}`}>
+                    {visibleAnalysis ? (
                       <>
                         <img
-                          src={getGoalImage(gender, goalAnalysis.key)}
-                          alt=""
-                          aria-hidden="true"
-                          className={styles.goalCardImage}
-                        />
-                        <div className={styles.goalCardContent}>
-                          <p className={styles.goalCardTitle}>Oops! Out of range</p>
-                          <p className={styles.goalCardBody}>
-                            According to medical standards, a healthy BMI falls between <strong>18.5</strong> and <strong>24.9</strong>.
-                            {minHealthyLbs > 0 && <> For your height, this means a recommended goal weight between <strong>{displayMinW} {unit}</strong> and <strong>{displayMaxW} {unit}</strong>.</>}
-                            {' '}<strong>Please adjust your target to stay within the safe range.</strong>
-                          </p>
-                        </div>
-                      </>
-                    ) : goalAnalysis ? (
-                      <>
-                        <img
-                          src={getGoalImage(gender, goalAnalysis.key)}
+                          src={getGoalImage(gender, visibleAnalysis.key)}
                           alt=""
                           aria-hidden="true"
                           className={styles.goalCardImage}
                         />
                         <div className={styles.goalCardContent}>
                           <p className={styles.goalDesc}>
-                            {goalAnalysis.key === 'a-lot'    && t.goal_a_lot}
-                            {goalAnalysis.key === 'moderate' && t.goal_moderate}
-                            {goalAnalysis.key === 'small'    && t.goal_small}
+                            {visibleAnalysis.key === 'a-lot' && t.goal_a_lot}
+                            {visibleAnalysis.key === 'moderate' && t.goal_moderate}
+                            {visibleAnalysis.key === 'small' && t.goal_small}
                           </p>
                         </div>
                       </>
@@ -757,7 +736,7 @@ export default function QuizStepPage() {
   // even when navigated to directly (without going through the intro page first).
   useEffect(() => {
     if (urlLang && urlLang !== storeLang) setLang(lang)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlLang])
 
   const ov = useTranslationOverrides(lang)
@@ -771,7 +750,7 @@ export default function QuizStepPage() {
   useEffect(() => {
     const stepFromPath = Number(pathname.match(/\/quiz\/(\d+)/)?.[1])
     if (stepFromPath && stepFromPath !== stepNum) setStepNum(stepFromPath)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   useEffect(() => {

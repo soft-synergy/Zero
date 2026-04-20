@@ -9,44 +9,45 @@
 }
 
 .page {
-  min-height: 120vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 18px 20px 48px;
-  max-width: 540px;
+  padding: 24px 20px 48px;
+  max-width: 600px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .heroImage {
-  width: min(100%, 220px);
+  width: min(85vw, 360px);
   height: auto;
   display: block;
-  margin-top: 2px;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 20px;
   animation: fadeDown 0.45s ease both;
 }
 
 .headline {
-  font-size: clamp(22px, 5vw, 32px);
+  font-size: clamp(28px, 7vw, 40px);
   font-weight: 800;
   color: var(--color-text);
   text-align: center;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
   animation: fadeDown 0.4s 0.05s ease both;
-  max-width: 440px;
+  max-width: 480px;
 }
 
 .subheadline {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--color-text-secondary);
   text-align: center;
   line-height: 1.5;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
   animation: fadeDown 0.4s 0.1s ease both;
-  max-width: 360px;
+  max-width: 400px;
 }
 
 .chooseLabel {
@@ -54,7 +55,7 @@
   font-weight: 600;
   color: var(--color-text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   margin-bottom: 16px;
   animation: fadeUp 0.4s 0.15s ease both;
 }
@@ -63,7 +64,7 @@
   display: flex;
   gap: 14px;
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   animation: fadeUp 0.4s 0.2s ease both;
   margin-bottom: 32px;
 }
@@ -74,7 +75,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 18px 16px;
+  padding: 22px 16px;
   min-height: 0;
   border-radius: var(--radius-card);
   border: none;
@@ -108,7 +109,7 @@
 }
 
 .genderLabel {
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -248,28 +249,36 @@
   margin-top: 4px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 480px) {
   .page {
-    min-height: 112vh;
-    padding: 14px 16px 32px;
+    padding: 16px 16px 32px;
   }
 
   .heroImage {
-    width: min(100%, 190px);
+    width: min(90vw, 320px);
+    margin-bottom: 16px;
   }
 
   .headline {
-    font-size: 19px;
-    max-width: 360px;
+    font-size: clamp(26px, 8vw, 34px);
   }
 
   .subheadline {
-    max-width: 340px;
+    font-size: 16px;
+    margin-bottom: 32px;
   }
 
   .genderRow {
     flex-direction: column;
-    max-width: 360px;
+    gap: 12px;
+  }
+
+  .genderBtn {
+    padding: 20px 16px;
+  }
+
+  .genderLabel {
+    font-size: 18px;
   }
 
   .scrollSpacer {
