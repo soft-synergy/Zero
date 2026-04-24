@@ -1,4 +1,5 @@
 'use client'
+// v2 - risk pills layout
 import { useEffect, useState } from 'react'
 import styles from './BMICard.module.css'
 
@@ -34,6 +35,7 @@ interface Category {
   bg: string
   descriptionLabel: string
   description: string
+  isRisks: boolean
 }
 
 const DEFAULT_T: BMICardT = {
@@ -60,6 +62,7 @@ function getCategory(bmi: number, labels: BMICardT): Category {
     bg: '#e8f4ff',
     descriptionLabel: labels.healthyLabel,
     description: labels.descUnderweight,
+    isRisks: false,
   }
   if (bmi < 25) return {
     label: labels.catNormal,
@@ -67,6 +70,7 @@ function getCategory(bmi: number, labels: BMICardT): Category {
     bg: '#eaf3ea',
     descriptionLabel: labels.healthyLabel,
     description: labels.descNormal,
+    isRisks: false,
   }
   if (bmi < 30) return {
     label: labels.catOverweight,
@@ -74,6 +78,7 @@ function getCategory(bmi: number, labels: BMICardT): Category {
     bg: '#fdeee4',
     descriptionLabel: labels.risksLabel,
     description: labels.descRisks,
+    isRisks: true,
   }
   return {
     label: labels.catObese,
@@ -81,6 +86,7 @@ function getCategory(bmi: number, labels: BMICardT): Category {
     bg: '#fce5e2',
     descriptionLabel: labels.risksLabel,
     description: labels.descRisks,
+    isRisks: true,
   }
 }
 
@@ -264,9 +270,23 @@ export default function BMICard({
 
       {/* ── white body ── */}
       <div className={styles.body}>
-        <p className={styles.description}>
-          <strong>{cat.descriptionLabel}</strong>{' '}{cat.description}
-        </p>
+        {cat.isRisks ? (
+          <div className={styles.risksList}>
+            <span className={styles.risksLabel}>{cat.descriptionLabel}</span>
+            {cat.description
+              .replace(/\.$/, '')
+              .split(',')
+              .map((item) => item.trim())
+              .filter(Boolean)
+              .map((item, i) => (
+                <span key={i} className={styles.risksPill}>{item}</span>
+              ))}
+          </div>
+        ) : (
+          <p className={styles.description}>
+            <strong>{cat.descriptionLabel}</strong>{' '}{cat.description}
+          </p>
+        )}
 
         <div className={styles.infoList}>
           {[

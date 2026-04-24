@@ -118,6 +118,10 @@ export function applyStepPageOverrides(
     age_insight_70s_men_body: o('age_insight_70s_men_body') ?? t.age_insight_70s_men_body,
     age_insight_70s_women_headline: o('age_insight_70s_women_headline') ?? t.age_insight_70s_women_headline,
     age_insight_70s_women_body: o('age_insight_70s_women_body') ?? t.age_insight_70s_women_body,
+    age_insight_prefix: o('age_insight_prefix')
+      ? (decade: string, isMen: boolean) =>
+          o('age_insight_prefix')!.replace('__DECADE__', decade).replace('__GENDER__', isMen ? 'Men' : 'Women')
+      : t.age_insight_prefix,
     error_range: o('error_range')
       ? (mn: number, mx: number, u: string) =>
           o('error_range')!.replace('__MIN__', String(mn)).replace('__MAX__', String(mx)).replace('__UNIT__', u).trim()

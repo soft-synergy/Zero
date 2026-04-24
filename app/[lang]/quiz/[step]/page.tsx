@@ -70,7 +70,7 @@ function StepContent({
   ov: Record<string, string>
   lang: import('@/lib/lang-store').LangCode
 }) {
-  const { answers, gender, weightUnit, setAnswer, setWeightUnit } = useQuizStore()
+  const { answers, gender, weightUnit, heightUnit, setAnswer, setWeightUnit, setHeightUnit } = useQuizStore()
   const rawT = useStepPageT(lang)
   const introT = useIntroT(lang)
   const t = useMemo(() => applyStepPageOverrides(rawT, ov), [rawT, ov])
@@ -80,13 +80,19 @@ function StepContent({
   const savedAnswer = answers[stepNum]
   const canonicalUnit = stepData?.units?.[0] ?? stepData?.unit ?? ''
 
-  const [inputUnit, setInputUnit] = useState<string>(() => {
-    // Default weight to kg, height to cm
-    if (stepData?.units?.includes('kg') && canonicalUnit === 'lbs') return 'kg'
+  // Determine the initial display unit — restore user's saved preference
+  const getInitialUnit = () => {
+    if (stepData?.units?.includes('kg') && canonicalUnit === 'lbs') return weightUnit  // 'kg' or 'lbs'
+    if (stepData?.units?.includes('in') && canonicalUnit === 'cm') return heightUnit   // 'cm' or 'in'
     return canonicalUnit
-  })
+  }
+  const [inputUnit, setInputUnit] = useState<string>(getInitialUnit)
   const [inputValue, setInputValue] = useState<string>(() => {
-    if (typeof savedAnswer === 'string' && stepData?.type === 'input-number' && savedAnswer) return savedAnswer
+    if (typeof savedAnswer === 'string' && stepData?.type === 'input-number' && savedAnswer) {
+      const unit = getInitialUnit()
+      if (unit === 'in') return '' // ft+in mode uses ftValue/inchValue instead
+      return fromCanonical(savedAnswer, unit, canonicalUnit)
+    }
     return ''
   })
   // ft+in dual inputs for height step (when unit is 'in' and canonical is 'cm')
@@ -182,6 +188,9 @@ function StepContent({
     if (newUnit === inputUnit || !stepData.units) return
     const canonical = toCanonical(activeInputValue, inputUnit, canonicalUnit)
     setInputUnit(newUnit)
+    // Persist unit preference so it survives back navigation
+    if (stepData.units.includes('in') && canonicalUnit === 'cm') setHeightUnit(newUnit)
+    if (stepData.units.includes('kg') && canonicalUnit === 'lbs') setWeightUnit(newUnit)
     if (newUnit === 'in') {
       const totalIn = Number(fromCanonical(canonical, 'in', 'cm'))
       if (totalIn > 0) {
@@ -267,7 +276,9 @@ function StepContent({
           </div>
           <div className={interStyles.body}>
             <h1 className={interStyles.headline}>{insight.headline}</h1>
-            <p className={interStyles.para}>{insight.body}</p>
+            <p className={interStyles.para}>
+              <span className={interStyles.agePrefix}>{t.age_insight_prefix(decade, isMen)}</span>{' '}{insight.body}
+            </p>
           </div>
         </main>
         <QuizFooter onClick={() => navigate('forward')} sticky={false} label={stepData.buttonLabel} />
@@ -302,8 +313,12 @@ function StepContent({
       <>
         <main className={interStyles.main} style={{ gap: 16, paddingTop: 100, paddingBottom: 20 }}>
           <div style={{ textAlign: 'center', width: 'calc(100% - 40px)', maxWidth: 540 }}>
-            <p style={{ fontSize: 26, fontWeight: 800, lineHeight: 1.3, color: 'var(--color-text)', margin: 0, letterSpacing: '-0.02em' }}
-              dangerouslySetInnerHTML={{ __html: t.weight_goal_headline(`<span style="display:block;font-size:20px;font-weight:700;margin-top:6px;letter-spacing:-0.01em;color:var(--color-primary)">${goalDisplay}</span>`) }}
+            <p style={{ fontSize: 26, fontWeight: 800, lineHeight: 1.4, color: 'var(--color-text)', margin: 0, letterSpacing: '-0.02em' }}
+              dangerouslySetInnerHTML={{
+                __html: t.weight_goal_headline(
+                  `<span style="color:var(--color-primary);white-space:nowrap">${goalDisplay} ${t.weight_goal_by} ${goalDateStr}</span>`
+                )
+              }}
             />
           </div>
 
@@ -314,23 +329,6 @@ function StepContent({
             unit={unit}
             label={t.weight_chart_label}
           />
-
-          <div style={{
-            background: 'var(--color-primary)',
-            borderRadius: 14,
-            padding: '12px 24px',
-            textAlign: 'center',
-            width: 'calc(100% - 40px)',
-            maxWidth: 540,
-            boxSizing: 'border-box',
-          }}>
-            <p style={{ fontSize: 12, fontWeight: 500, color: 'rgba(255,255,255,0.7)', marginBottom: 2, marginTop: 0 }}>
-              {t.weight_goal_estimated}
-            </p>
-            <p style={{ fontSize: 18, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', margin: 0 }}>
-              {goalDisplay} {t.weight_goal_by} {goalDateStr}
-            </p>
-          </div>
         </main>
         <QuizFooter onClick={() => navigate('forward')} sticky={false} label={stepData.buttonLabel} />
       </>
@@ -431,7 +429,8 @@ function StepContent({
   const handleContinue = () => {
     if (isInput) {
       setAnswer(stepNum, toCanonical(activeInputValue, inputUnit, canonicalUnit))
-      if (stepNum === WEIGHT_STEP) setWeightUnit(inputUnit)
+      if (stepNum === WEIGHT_STEP || stepNum === GOAL_WEIGHT_STEP) setWeightUnit(inputUnit)
+      if (stepNum === HEIGHT_STEP) setHeightUnit(inputUnit)
     } else if (isTextInput) setAnswer(stepNum, textValue.trim())
     else if (isDateInput && dateValue) setAnswer(stepNum, dateValue)
     navigate('forward')
@@ -523,14 +522,15 @@ function StepContent({
             <>
               {hasUnitToggle && (
                 <div className={styles.unitToggle}>
-                  {stepData.units!.map((u) => (
+                  {/* For height: show ft before cm; for weight: show kg before lbs */}
+                  {[...stepData.units!].reverse().map((u) => (
                     <button
                       key={u}
                       className={`${styles.unitBtn} ${inputUnit === u ? styles.unitBtnActive : ''}`}
                       onClick={() => handleUnitSwitch(u)}
                       type="button"
                     >
-                      {u}
+                      {u === 'in' ? 'ft' : u}
                     </button>
                   ))}
                 </div>
@@ -574,6 +574,7 @@ function StepContent({
                         const num = Number(val)
                         if (num >= 4 && num <= 8) {
                           setInputUnit('in')
+                          setHeightUnit('in')
                           setFtValue(val)
                           setInchValue('')
                           return
@@ -631,33 +632,6 @@ function StepContent({
                       </>
                     ) : (
                       <p className={styles.bmiLivePlaceholder}>{t.bmi_checking}</p>
-                    )}
-                  </div>
-                )
-              })()}
-
-              {stepData.showGoalCard && (() => {
-                const visibleAnalysis = goalAnalysis?.key === 'too-low' ? null : goalAnalysis
-                return (
-                  <div className={`${styles.goalCard} ${visibleAnalysis ? styles.goalCardVisible : ''}`}>
-                    {visibleAnalysis ? (
-                      <>
-                        <img
-                          src={getGoalImage(gender, visibleAnalysis.key)}
-                          alt=""
-                          aria-hidden="true"
-                          className={styles.goalCardImage}
-                        />
-                        <div className={styles.goalCardContent}>
-                          <p className={styles.goalDesc}>
-                            {visibleAnalysis.key === 'a-lot' && t.goal_a_lot}
-                            {visibleAnalysis.key === 'moderate' && t.goal_moderate}
-                            {visibleAnalysis.key === 'small' && t.goal_small}
-                          </p>
-                        </div>
-                      </>
-                    ) : (
-                      <p className={styles.bmiLivePlaceholder}>{t.goal_placeholder}</p>
                     )}
                   </div>
                 )

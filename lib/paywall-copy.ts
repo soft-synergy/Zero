@@ -86,6 +86,7 @@ export type Copy = {
   giftSectionBody: string
   guaranteeLinkLabel: string
   guaranteePrefix: string
+  guaranteeSuffix?: string
   personalHeading: (name: string) => string
   guaranteeTitle: string
   guaranteeBody: string
@@ -187,12 +188,13 @@ export const EN: Copy = {
   giftSectionHighlight: "SECRET gift",
   giftSectionWorth: " (worth $50)",
   giftSectionBody: "The Zero Carbs Challenge team wants to support your relationship with food transformation and prepared a secret surprise for you.",
-  guaranteePrefix: "Find more about applicable limitations in our",
+  guaranteePrefix: "See our",
+  guaranteeSuffix: " for full details and conditions.",
   personalHeading: (name) => "__NAME__, build real results at your own pace".replace("__NAME__", String(name)),
   guaranteeTitle: "30-Day Money-Back Guarantee",
-  guaranteeBody: "Try Zero Carbs Challenge with no risk. If it is not the right fit for you, you can request a refund within 30 days. Please check our Refund Policy for full details.",
+  guaranteeBody: "We believe the Personalized Zero Carbs Challenge can help you see real progress in 4 weeks. If you do not see visible results and can show that you followed the plan, you may request your money back.",
   guaranteeLinkLabel: "money-back policy",
-  footer: "© 2026 Zero Carbs Challenge. All rights reserved.",
+  footer: "© 2026 Personalized Zero Carbs Challenge. All rights reserved.",
   goalLabels: { "lose-weight":"Lose weight", "heart-health":"Improve heart health", "firm-toned":"Get more toned", "lower-bio-age":"Feel younger & energized" },
   sleepLabels: { "less-than-5":"Poor", "<5":"Poor", "5-6":"Needs improvement", "7-8":"Good", "8-9":"Good", "9+":"Could be better" },
   fitnessLabels: { sedentary:"Low", "lightly-active":"Low", light:"Low", moderate:"Medium", intermediate:"Medium", active:"High", "very-active":"High", advanced:"High" },

@@ -71,7 +71,7 @@ export default function QuizHeader({
 
         {/* Center: logo */}
         <div className={styles.headerCenter}>
-          <img src="/images/logo.png" alt="Logo" className={styles.logo} />
+          <img src="/images/logo-new.png" alt="Logo" className={styles.logo} />
         </div>
 
         {/* Right: step counter */}

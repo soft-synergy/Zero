@@ -7,6 +7,7 @@ interface QuizState {
   age: string
   gender: 'men' | 'women' | null
   weightUnit: string
+  heightUnit: string
   currentStep: number
   direction: 'forward' | 'backward'
   _hydrated: boolean
@@ -14,6 +15,7 @@ interface QuizState {
   setGender: (g: 'men' | 'women') => void
   setAnswer: (step: number, answer: string | string[]) => void
   setWeightUnit: (unit: string) => void
+  setHeightUnit: (unit: string) => void
   setDirection: (d: 'forward' | 'backward') => void
   setCurrentStep: (step: number) => void
   setHydrated: (v: boolean) => void
@@ -27,6 +29,7 @@ export const useQuizStore = create<QuizState>()(
       age: '',
       gender: null,
       weightUnit: 'kg',
+      heightUnit: 'cm',
       currentStep: 1,
       direction: 'forward',
       _hydrated: false,
@@ -35,10 +38,11 @@ export const useQuizStore = create<QuizState>()(
       setAnswer: (step, answer) =>
         set((s) => ({ answers: { ...s.answers, [step]: answer } })),
       setWeightUnit: (weightUnit) => set({ weightUnit }),
+      setHeightUnit: (heightUnit) => set({ heightUnit }),
       setDirection: (direction) => set({ direction }),
       setCurrentStep: (currentStep) => set({ currentStep }),
       setHydrated: (v) => set({ _hydrated: v }),
-      reset: () => set({ answers: {}, age: '', gender: null, weightUnit: 'kg', currentStep: 1, direction: 'forward' }),
+      reset: () => set({ answers: {}, age: '', gender: null, weightUnit: 'kg', heightUnit: 'cm', currentStep: 1, direction: 'forward' }),
     }),
     {
       name: 'quiz-state',

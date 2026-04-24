@@ -20,15 +20,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px 10px;
+  padding: 0 16px;
 }
 
 .btnBack {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
   cursor: pointer;
@@ -76,8 +76,8 @@
 }
 
 .logo {
-  height: 28px;
-  width: auto;
+  height: 82px;
+  width: 82px;
   display: block;
   border: none;
   outline: none;
@@ -88,7 +88,7 @@
 }
 
 .progressTrack {
-  height: 2px;
+  height: 4px;
   background: var(--color-progress-track);
 }
 

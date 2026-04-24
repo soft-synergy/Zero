@@ -22,7 +22,7 @@
 .bmiTitle {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-text-mid, #555);
+  color: var(--color-text-mid, #000);
   letter-spacing: 0.02em;
   margin-bottom: 4px;
 }
@@ -106,7 +106,7 @@
   display: block;
   font-size: 12px;
   font-weight: 500;
-  color: var(--color-text-secondary, #a0a09a);
+  color: var(--color-text-secondary, #000);
   letter-spacing: 0.02em;
   line-height: 1.2;
 }
@@ -129,44 +129,87 @@
   pointer-events: none;
 }
 
+/* ─── RISK PILLS ────────────────────────────────────────────────── */
+.risksList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.risksLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text, #1a1a18);
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.risksPill {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text, #1a1a18);
+  background: rgba(0, 0, 0, 0.07);
+  border-radius: 999px;
+  padding: 4px 10px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
 @media (max-width: 640px) {
   .header {
-    padding: 20px 16px 0;
+    padding: 14px 16px 0;
   }
 
   .bmiCategory {
-    font-size: 30px;
+    font-size: 26px;
+    margin-bottom: 8px;
   }
 
   .gaugeWrap {
-    max-width: 100%;
+    max-width: 90%;
   }
 
   .body {
-    padding: 18px 18px 20px;
-    min-height: 240px;
+    padding: 14px 16px 16px;
+    min-height: 220px;
   }
 
   .description {
     font-size: 14px;
     max-width: 56%;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .infoList {
     max-width: 56%;
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .infoIconWrap {
+    width: 38px;
+    height: 38px;
+  }
+
+  .infoValue {
+    font-size: 14px;
   }
 
   .photoWrap {
     width: 46%;
-    height: 260px;
+    height: 240px;
+  }
+
+  /* risks pills override: full width */
+  .risksList {
+    max-width: 100%;
+    margin-bottom: 12px;
   }
 }
 
 @media (max-width: 400px) {
   .body {
-    min-height: 220px;
+    min-height: 200px;
   }
 
   .description {
@@ -178,6 +221,6 @@
   }
 
   .photoWrap {
-    height: 230px;
+    height: 210px;
   }
 }

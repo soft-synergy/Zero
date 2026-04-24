@@ -118,3 +118,8 @@
   margin: 0;
   text-align: center;
 }
+
+.agePrefix {
+  font-weight: 700;
+  color: var(--color-primary);
+}

@@ -19,43 +19,53 @@
   width: 100%;
 }
 
+.logoImage {
+  height: 82px;
+  width: 82px;
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  animation: fadeDown 0.4s ease both;
+}
+
 .heroImage {
   width: min(85vw, 360px);
   height: auto;
   display: block;
-  margin-top: 8px;
+  margin-top: 0;
   margin-bottom: 20px;
   animation: fadeDown 0.45s ease both;
 }
 
 .headline {
-  font-size: clamp(28px, 7vw, 40px);
-  font-weight: 800;
+  font-size: 34px;
+  font-weight: 700;
   color: var(--color-text);
   text-align: center;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  line-height: 40px;
+  letter-spacing: normal;
   margin-bottom: 14px;
   animation: fadeDown 0.4s 0.05s ease both;
   max-width: 480px;
 }
 
 .subheadline {
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 300;
   color: var(--color-text-secondary);
   text-align: center;
-  line-height: 1.5;
+  line-height: 26px;
   margin-bottom: 40px;
   animation: fadeDown 0.4s 0.1s ease both;
   max-width: 400px;
 }
 
 .chooseLabel {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  line-height: 24px;
+  letter-spacing: normal;
   margin-bottom: 16px;
   animation: fadeUp 0.4s 0.15s ease both;
 }
@@ -109,9 +119,10 @@
 }
 
 .genderLabel {
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: normal;
 }
 
 .scrollSpacer {
@@ -178,7 +189,7 @@
 
 .footerLangSwitcher label {
   font-size: 12px;
-  color: #6d6d69;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -206,14 +217,14 @@
 .footerDisclaimer {
   font-size: 14px;
   line-height: 1.45;
-  color: #7a7a77;
+  color: #000000;
   margin: 0 0 22px;
 }
 
 .footerCopy {
   font-size: 14px;
   line-height: 1.4;
-  color: #6d6d69;
+  color: #000000;
   margin: 0;
 }
 
@@ -254,17 +265,23 @@
     padding: 16px 16px 32px;
   }
 
+  .logoImage {
+    height: 56px;
+    width: 56px;
+  }
+
   .heroImage {
     width: min(90vw, 320px);
     margin-bottom: 16px;
   }
 
   .headline {
-    font-size: clamp(26px, 8vw, 34px);
+    font-size: 34px;
+    line-height: 40px;
   }
 
   .subheadline {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 32px;
   }
 
@@ -278,11 +295,17 @@
   }
 
   .genderLabel {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .scrollSpacer {
-    height: 34vh;
+    height: 0;
+  }
+
+  .footerBand {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .footer {
@@ -300,5 +323,12 @@
   .storeBadge {
     width: 100%;
     min-width: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: 48px;
+    line-height: 56px;
   }
 }

@@ -16,9 +16,9 @@
 
   /* Text */
   --color-text:             #1a1a18;
-  --color-text-mid:         #555552;
-  --color-text-secondary:   #a0a09a;
-  --color-text-soft:        #999994;
+  --color-text-mid:         #000000;
+  --color-text-secondary:   #000000;
+  --color-text-soft:        #000000;
 
   /* Border / progress */
   --color-border:           #e4e2dd;

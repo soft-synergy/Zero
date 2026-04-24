@@ -389,7 +389,7 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
           <div className={styles.guaranteeCard}>
             <h2>{copy.guaranteeTitle}</h2>
             <p>{copy.guaranteeBody}</p>
-            <p>{copy.guaranteePrefix} <a href={QUIZ_URLS.moneyBackGuarantee(lang)}>{copy.guaranteeLinkLabel}</a></p>
+            <p>{copy.guaranteePrefix} <a href={QUIZ_URLS.moneyBackGuarantee(lang)}>{copy.guaranteeLinkLabel}</a>{copy.guaranteeSuffix ?? ''}</p>
             <SealIcon />
           </div>
         </section>

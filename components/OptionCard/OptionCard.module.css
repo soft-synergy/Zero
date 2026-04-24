@@ -99,10 +99,10 @@
 /* ─── LABEL ─────────────────────────────────────────────────── */
 .optionLabel {
   flex: 1;
-  font-size: 19px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   color: var(--color-text);
-  line-height: 1.25;
+  line-height: 24px;
   transition: color 0.2s ease;
   padding-right: 8px;
 }
@@ -172,8 +172,8 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -230,12 +230,17 @@
 
 /* ─── RESPONSIVE ────────────────────────────────────────────── */
 @media (max-width: 480px) {
+  .option {
+    height: 74px;
+  }
+
   .optionImageWrap {
-    width: 90px;
+    width: 80px;
+    height: 74px;
   }
 
   .optionLabel {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 

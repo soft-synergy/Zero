@@ -39,6 +39,12 @@ export default function IntroClient({ lang }: { lang: LangCode }) {
   return (
     <div className={styles.page}>
       <img
+        className={styles.logoImage}
+        src="/images/logo-new.png"
+        alt="Zero Carbs Challenge"
+      />
+
+      <img
         className={styles.heroImage}
         src="/images/QUIZ-20 (1).png"
         alt=""
