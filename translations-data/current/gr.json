@@ -4,6 +4,7 @@
   "intro.headline": "Προσαρμοσμένο στο Σώμα και τον Τρόπο Ζωής σας",
   "intro.subheadline": "Ένα απλό, εξατομικευμένο πρόγραμμα για να μειώσετε τις λιγούρες, να αποτοξινώσετε το σώμα σας και να χάσετε βάρος",
   "intro.choose_label": "Επιλέξτε την εξατομικευμένη σας πρόκληση:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Για Άνδρες",
   "intro.gender_women": "Για Γυναίκες",
   "intro.age_group_label": "Επιλέξτε το ηλικιακό σας εύρος",
@@ -415,5 +416,6 @@
   "ui.continue": "Συνέχεια",
   "ui.skip": "Παράλειψη αυτής της ερώτησης",
   "ui.go_back": "Επιστροφή",
-  "ui.quiz_progress": "Πρόοδος κουίζ"
+  "ui.quiz_progress": "Πρόοδος κουίζ",
+  "stepPage.bmi_page_label": "Η προσωπική σου σύνοψη"
 }

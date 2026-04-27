@@ -4,6 +4,7 @@
   "intro.headline": "Prilagođeno vašem tijelu i načinu života",
   "intro.subheadline": "Jednostavan, personalizirani plan za smanjenje žudnje za hranom, detoksikaciju tijela i gubitak težine",
   "intro.choose_label": "Odaberite svoj personalizirani izazov:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Za muškarce",
   "intro.gender_women": "Za žene",
   "intro.age_group_label": "Odaberite svoju dobnu skupinu",
@@ -415,5 +416,6 @@
   "ui.continue": "Nastavi",
   "ui.skip": "Preskoči ovo pitanje",
   "ui.go_back": "Vrati se",
-  "ui.quiz_progress": "Napredak analize"
+  "ui.quiz_progress": "Napredak analize",
+  "stepPage.bmi_page_label": "Vaš osobni sažetak"
 }

@@ -22,6 +22,7 @@ export type Copy = {
   discount: (v: string) => string
   perDay: (v: string) => string
   moneyBackRow: string
+  purchaseLegal?: (introPrice: string, renewalPrice: string, planLabel: string, renewalPeriod: string) => string
   cta: string
   consentPrefix: string
   terms: string
@@ -44,6 +45,7 @@ export type Copy = {
   bulletTitle: string
   bullets: string[]
   whatYouGet: string
+  featureIntro?: string
   features: { title: string; desc: string }[]
   phoneMealTag: string
   phoneMealTitle: string
@@ -121,7 +123,9 @@ export const EN: Copy = {
   discount: (v) => "with __V__ discount".replace("__V__", String(v)),
   perDay: (v) => "≈ __V__ per day".replace("__V__", String(v)),
   moneyBackRow: "30-day money-back guarantee — Try it with no risk. If it is not right for you, you can get your money back.",
-  cta: "Get my plan",
+  purchaseLegal: (introPrice, renewalPrice, planLabel, renewalPeriod) =>
+    `By clicking Start my plan, you agree to pay ${introPrice} for the ${planLabel} intro plan. If you do not cancel before it ends, you will be charged ${renewalPrice} every ${renewalPeriod} until you cancel. You can cancel anytime online from your account.`,
+  cta: "Start my plan",
   consentPrefix: "By continuing, you agree to our",
   terms: "Terms of Use",
   privacy: "Privacy Policy",
@@ -142,7 +146,8 @@ export const EN: Copy = {
   readyHeading: "Your plan with Zero Carbs Challenge is ready!",
   bulletTitle: "With Zero Carbs Challenge, you can:",
   bullets: ["Build confidence", "Boost your energy", "Reduce stress", "Support your body over time"],
-  whatYouGet: "What you get with Zero Carbs Challenge",
+  whatYouGet: "What you get",
+  featureIntro: "The Personalized Zero Carbs Challenge was created to help you feel more in control around food, cravings, and daily choices.",
   phoneMealTag: "Breakfast",
   phoneMealTitle: "Fried Salmon with Green Beans",
   phoneMealMeta: "4.8 · 10 min · 498 kcal",
@@ -157,10 +162,10 @@ export const EN: Copy = {
   phoneIngredient4: "Olive Oil",
   phoneIngredient4Qty: "3 1/2 tsp",
   features: [
-    { title: "A personalized plan", desc: "Your plan is built around your body, your energy, and your daily life — not a generic routine." },
-    { title: "Simple daily direction", desc: "You always know what to do today, without thinking or planning." },
-    { title: "Adaptive guidance", desc: "Your plan adjusts as you go — based on your progress, your energy, and your consistency." },
-    { title: "Support when you need it", desc: "If you feel stuck, tired, or miss a day — your plan helps you get back on track." }
+    { title: "A personalized Zero Carbs challenge", desc: "Your plan is based on your goals, food preferences, routine, and lifestyle, so it feels more personal from the start." },
+    { title: "AI coaching and support", desc: "You get guidance that helps you handle cravings, busy days, low motivation, and the moments when you usually go off track." },
+    { title: "Simple meal ideas and easy recipes", desc: "You get clear ideas for breakfast, lunch, dinner, and snacks, with meals that are easy to make and easier to follow." },
+    { title: "A plan made for real life", desc: "This is built to feel practical, flexible, and easier to stick with, not strict, confusing, or overwhelming." }
   ],
   socialText: "Millions of people have already started their journey",
   socialSub: "And many have seen real progress over time.",

@@ -39,6 +39,22 @@
   gap: 8px;
 }
 
+/* ─── BMI CARD STEP ──────────────────────────────────────────────── */
+
+.bmiContent {
+  width: 100%;
+  max-width: 560px;
+  padding: 0 16px;
+}
+
+.bmiPageLabel {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
 /* ─── UNIT TOGGLE ────────────────────────────────────────────────── */
 
 .unitToggle {
@@ -560,6 +576,24 @@
   .numberInput {
     font-size: 48px;
     width: 220px;
+  }
+
+  /* ft/in: two inputs side-by-side — shrink to fit narrow screens */
+  .ftInWrap {
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ftInField {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ftInField .numberInput {
+    width: 100%;
+    min-width: 0;
+    font-size: 40px;
   }
 
   .numberInput::placeholder {

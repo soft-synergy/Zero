@@ -29,10 +29,10 @@ function buildPlan(
     // some currencies shouldn't have decimals if integer
     if (['HUF', 'JPY', 'TWD', 'ILS'].includes(currencyTag) || (['RON', 'DKK', 'CZK'].includes(currencyTag) && Math.round(v) === v)) {
       v = Math.round(v)
-      return currencyPosition === 'before' ? `${currencyTag}${v}` : currencyPosition === 'jp' ? `${v} ${currencyTag}` : `${v} ${currencyTag}`
+      return currencyPosition === 'before' ? `${currencyTag} ${v}` : currencyPosition === 'jp' ? `${v} ${currencyTag}` : `${v} ${currencyTag}`
     }
     const str = v.toFixed(2).replace('.', decimalSymbol)
-    return currencyPosition === 'before' ? `${currencyTag}${str}` : currencyPosition === 'jp' ? `${str} ${currencyTag}` : `${str} ${currencyTag}`
+    return currencyPosition === 'before' ? `${currencyTag} ${str}` : currencyPosition === 'jp' ? `${str} ${currencyTag}` : `${str} ${currencyTag}`
   }
   
   // Actually, we should calculate the oldPrice base from the 'base' price so it doesn't change across variants!

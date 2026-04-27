@@ -84,7 +84,7 @@ export default function IntroClient({ lang }: { lang: LangCode }) {
           </nav>
 
           <div className={styles.footerLangSwitcher}>
-            <label htmlFor="intro-lang-switcher">{t.choose_label}</label>
+            <label htmlFor="intro-lang-switcher">{t.select_language}</label>
             <select
               id="intro-lang-switcher"
               value={lang}

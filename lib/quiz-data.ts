@@ -243,7 +243,7 @@ export const QUIZ_STEPS: QuizStep[] = [
   },
   {
     step: 18,
-    question: 'Which foods do you not want in your plan?',
+    question: 'Which foods do you NOT want in your plan?',
     subtitle: 'Choose all that apply',
     type: 'multi',
     exclusion: true,
@@ -260,7 +260,7 @@ export const QUIZ_STEPS: QuizStep[] = [
   },
   {
     step: 19,
-    question: 'Which of these foods do you not like?',
+    question: 'Which of these foods do you NOT like?',
     subtitle: 'Choose all that apply',
     type: 'multi',
     exclusion: true,

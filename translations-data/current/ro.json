@@ -4,6 +4,7 @@
   "intro.headline": "Adaptat corpului și stilului tău de viață",
   "intro.subheadline": "Un plan simplu și personalizat pentru a reduce poftele, a detoxifia organismul și a pierde în greutate",
   "intro.choose_label": "Alege provocarea ta personalizată:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Pentru bărbați",
   "intro.gender_women": "Pentru femei",
   "intro.age_group_label": "Alege intervalul de vârstă",
@@ -415,5 +416,6 @@
   "ui.continue": "Continuă",
   "ui.skip": "Sari peste această întrebare",
   "ui.go_back": "Înapoi",
-  "ui.quiz_progress": "Progresul evaluării"
+  "ui.quiz_progress": "Progresul evaluării",
+  "stepPage.bmi_page_label": "Rezumatul tău personal"
 }

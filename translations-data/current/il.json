@@ -4,6 +4,7 @@
   "intro.headline": "מותאם לגוף ולאורח החיים שלך",
   "intro.subheadline": "תוכנית פשוטה ומותאמת אישית להפחתת חשקים, ניקוי רעלים מהגוף וירידה במשקל",
   "intro.choose_label": "בחר את האתגר המותאם אישית שלך:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "לגברים",
   "intro.gender_women": "לנשים",
   "intro.age_group_label": "בחר את קבוצת הגיל שלך",
@@ -415,5 +416,6 @@
   "ui.continue": "המשך",
   "ui.skip": "דלג על השאלה",
   "ui.go_back": "חזור",
-  "ui.quiz_progress": "התקדמות השאלון"
+  "ui.quiz_progress": "התקדמות השאלון",
+  "stepPage.bmi_page_label": "הסיכום האישי שלך"
 }

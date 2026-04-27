@@ -4,6 +4,7 @@
   "intro.headline": "С учетом особенностей вашего тела и образа жизни",
   "intro.subheadline": "Простой персонализированный план для снижения тяги к еде, детоксикации организма и снижения веса",
   "intro.choose_label": "Выберите свой персонализированный челлендж:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Для мужчин",
   "intro.gender_women": "Для женщин",
   "intro.age_group_label": "Выберите свой возрастной диапазон",
@@ -415,5 +416,6 @@
   "ui.continue": "Продолжить",
   "ui.skip": "Пропустить вопрос",
   "ui.go_back": "Назад",
-  "ui.quiz_progress": "Прогресс теста"
+  "ui.quiz_progress": "Прогресс теста",
+  "stepPage.bmi_page_label": "Ваш личный итог"
 }

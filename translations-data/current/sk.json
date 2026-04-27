@@ -4,6 +4,7 @@
   "intro.headline": "Prispôsobené vášmu telu a životnému štýlu",
   "intro.subheadline": "Jednoduchý, personalizovaný plán na zníženie chutí na jedlo, detoxikáciu tela a chudnutie",
   "intro.choose_label": "Vyberte si svoju osobnú výzvu:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Pre mužov",
   "intro.gender_women": "Pre ženy",
   "intro.age_group_label": "Vyberte svoju vekovú skupinu",
@@ -415,5 +416,6 @@
   "ui.continue": "Pokračovať",
   "ui.skip": "Preskočiť túto otázku",
   "ui.go_back": "Späť",
-  "ui.quiz_progress": "Priebeh testu"
+  "ui.quiz_progress": "Priebeh testu",
+  "stepPage.bmi_page_label": "Váš osobný prehľad"
 }

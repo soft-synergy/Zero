@@ -8,6 +8,13 @@
   overflow-x: clip;
 }
 
+/* ─── PAYWALL LOGO BAR ─────────────────────────────────────────── */
+.paywallLogo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
 .stickyOffer {
   position: sticky;
   top: 0;
@@ -22,22 +29,24 @@
   max-width: 760px;
   margin: 0 auto;
   padding: 10px 20px 12px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
 }
 
 .stickyBrand {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
 }
 
 .stickyTimerBlock {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   min-width: 0;
 }
 
@@ -80,10 +89,6 @@
 }
 
 .stickyCta {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -100,13 +105,20 @@
 
 @media (max-width: 760px) {
   .stickyInner {
+    display: flex;
     padding: 8px 12px 10px;
     gap: 10px;
     align-items: flex-start;
   }
 
+  .stickyBrand {
+    display: none;
+  }
+
   .stickyTimerBlock {
     flex: 1 1 auto;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .stickyTimerLabel {
@@ -282,8 +294,12 @@
 
 .pricingSection {
   max-width: 540px;
-  margin: 0 auto;
+  margin: 32px auto 0;
   text-align: center;
+}
+
+.pricingSectionTop {
+  margin-top: 22px;
 }
 
 .heroTitle {
@@ -460,14 +476,12 @@
 
 .moneyBackRow {
   max-width: 520px;
-  margin: 18px auto 0;
-  padding: 12px 14px;
-  border-radius: 8px;
-  background: var(--color-bg-subtle, #f6f8f5);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--color-text);
-  line-height: 1.45;
+  margin: 14px auto 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  text-align: center;
 }
 
 .purchaseSignals {
@@ -589,6 +603,14 @@
 .featureCopy {
   max-width: 620px;
   margin: 0 auto;
+}
+
+.featureIntro {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  opacity: 0.85;
 }
 
 .featureBand .phoneMockup {
@@ -946,10 +968,14 @@
   font-size: 14px;
   line-height: 1.55;
   color: var(--color-text-mid);
+  text-align: center;
 }
 
 .guaranteeCard a {
   color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
 }
 
 .sealIcon {
@@ -1252,8 +1278,7 @@
   }
 
   .moneyBackRow {
-    font-size: 15px;
-    padding: 14px;
+    font-size: 12px;
   }
 
   /* ── Secret gift: compact ── */

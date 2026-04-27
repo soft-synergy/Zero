@@ -4,6 +4,7 @@
   "intro.headline": "あなたの体とライフスタイルに合わせたプラン",
   "intro.subheadline": "食欲を抑え、体を整え、体重を減らすためのシンプルでパーソナライズされたプラン",
   "intro.choose_label": "パーソナライズされたチャレンジを選択してください：",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "男性用",
   "intro.gender_women": "女性用",
   "intro.age_group_label": "年齢層を選択してください",
@@ -416,5 +417,6 @@
   "ui.continue": "続行",
   "ui.skip": "質問をスキップ",
   "ui.go_back": "戻る",
-  "ui.quiz_progress": "進捗状況"
+  "ui.quiz_progress": "進捗状況",
+  "stepPage.bmi_page_label": "あなたの個人的なまとめ"
 }

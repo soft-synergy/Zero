@@ -4,6 +4,7 @@
   "intro.headline": "A testedhez és életmódodhoz igazítva",
   "intro.subheadline": "Egyszerű, személyre szabott terv a sóvárgás csökkentésére, a szervezet támogatására és a fogyásra",
   "intro.choose_label": "Válaszd ki a személyre szabott kihívásodat:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Férfiaknak",
   "intro.gender_women": "Nőknek",
   "intro.age_group_label": "Válaszd ki a korcsoportodat",
@@ -416,5 +417,6 @@
   "ui.continue": "Tovább",
   "ui.skip": "Kérdés kihagyása",
   "ui.go_back": "Vissza",
-  "ui.quiz_progress": "Kvíz állása"
+  "ui.quiz_progress": "Kvíz állása",
+  "stepPage.bmi_page_label": "Személyes összefoglalód"
 }

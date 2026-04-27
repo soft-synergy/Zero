@@ -128,9 +128,9 @@ export default function Results28Page() {
       <QuizHeader label={t.header_label} showBack={false} hideProgress={true} />
       <main className={styles.main}>
         <div className={styles.content}>
+          <h1 className={styles.headline}>{t.headline}</h1>
           <WeightCurve t={t} />
           <p className={styles.chartNote}>{t.chart_note}</p>
-          <h1 className={styles.headline}>{t.headline}</h1>
         </div>
       </main>
       <QuizFooter onClick={handleContinue} />

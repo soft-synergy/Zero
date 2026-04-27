@@ -4,6 +4,7 @@
   "intro.headline": "Tilpasset din krop og livsstil",
   "intro.subheadline": "En enkel, personlig plan til at reducere cravings, støtte kroppen og tabe dig",
   "intro.choose_label": "Vælg din personlige udfordring:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Til mænd",
   "intro.gender_women": "Til kvinder",
   "intro.age_group_label": "Vælg din aldersgruppe",
@@ -416,5 +417,6 @@
   "ui.continue": "Fortsæt",
   "ui.skip": "Spring dette spørgsmål over",
   "ui.go_back": "Gå tilbage",
-  "ui.quiz_progress": "Quiz-status"
+  "ui.quiz_progress": "Quiz-status",
+  "stepPage.bmi_page_label": "Dit personlige resumé"
 }

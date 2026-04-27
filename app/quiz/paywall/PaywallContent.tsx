@@ -245,13 +245,76 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
     )
   }, [selectedPlan.id, lang, variant, copy])
 
+  const purchaseLegalText = useMemo(() => {
+    const selectedPricing = PRICING[lang]?.[selectedPlan.id as '7d'|'1m'|'3m']?.[variant] ?? PRICING.en[selectedPlan.id as '7d'|'1m'|'3m'].base
+    const planLabel = selectedPlan.id === '7d' ? '7-day' : selectedPlan.id === '1m' ? '1-month' : '3-month'
+    const period = selectedPlan.renewalPeriod
+    if (copy.purchaseLegal) {
+      return copy.purchaseLegal(selectedPricing.price, selectedPricing.renewalPrice, planLabel, period)
+    }
+    return `By clicking Start my plan, you agree to pay ${selectedPricing.price} for the ${planLabel} intro plan. If you do not cancel before it ends, you will be charged ${selectedPricing.renewalPrice} every ${period} until you cancel. You can cancel anytime online from your account.`
+  }, [selectedPlan, lang, variant, copy])
+
+  const pricingSection = (className?: string) => (
+    <section className={className ? `${styles.pricingSection} ${className}` : styles.pricingSection}>
+      <h1 className={styles.heroTitle}>{copy.pageTitle}</h1>
+      <h2 className={styles.heroSubtitle}>{copy.pageSub}</h2>
+
+      <div className={styles.planList} role="radiogroup" aria-label={copy.choosePlanAria}>
+        {PLANS.map((plan, index) => {
+          const active = selected === plan.id
+          const translatedPlan = copy.plans[index] ?? copy.plans[0]
+          const pricing = PRICING[lang]?.[plan.id as '7d'|'1m'|'3m']?.[variant] ?? PRICING.en[plan.id as '7d'|'1m'|'3m'].base
+          return (
+            <button
+              key={plan.id}
+              type="button"
+              className={`${styles.planCard} ${translatedPlan?.badge ? styles.planCardWithRibbon : ''} ${active ? styles.planCardActive : ''}`}
+              onClick={() => setSelected(plan.id)}
+              role="radio"
+              aria-checked={active}
+              aria-label={`${translatedPlan?.name ?? plan.name}, ${plan.price}`}
+            >
+              {translatedPlan?.badge && <div className={styles.planRibbon}>{translatedPlan.badge}</div>}
+              <div className={styles.planMainRow}>
+                <div className={styles.planLeft}>
+                  <span className={`${styles.planRadio} ${active ? styles.planRadioActive : ''}`} />
+                  <div>
+                    <h3>{translatedPlan?.name ?? plan.name}</h3>
+                    <p className={styles.planPriceRow}>
+                      <span className={styles.planPriceOld}>{pricing.oldPrice}</span>
+                      <span>{pricing.price}</span>
+                    </p>
+                  </div>
+                </div>
+                <p className={styles.planDayPrice}>{pricing.perDay}</p>
+              </div>
+            </button>
+          )
+        })}
+      </div>
+
+      <a href={checkoutUrl} className={styles.primaryCta} aria-label={`${copy.cta} - ${selectedPlan.name}`}>{copy.cta}</a>
+      <div className={styles.purchaseSignals} aria-hidden="true">
+        <span>{copy.trustSecureCheckout}</span>
+        <span>{copy.trustCancelAnytime}</span>
+        <span>{copy.trustInstantAccess}</span>
+      </div>
+      <div className={styles.moneyBackRow}>
+        {purchaseLegalText}
+      </div>
+    </section>
+  )
+
   if (!_hydrated) return null
 
   return (
     <>
       <div className={styles.stickyOffer}>
         <div className={styles.stickyInner}>
-          <span className={styles.stickyBrand}>{copy.cta}</span>
+          <span className={styles.stickyBrand} aria-hidden="true">
+            <img src="/images/logo-new.png" alt="" className={styles.paywallLogo} />
+          </span>
           <div className={styles.stickyTimerBlock}>
             <span className={styles.stickyTimerLabel}>{copy.stickyTimerLabel}</span>
             <div className={`${styles.stickyTimer} ${isUrgent ? styles.stickyTimerUrgent : ''}`} aria-live="polite">
@@ -305,70 +368,13 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
             </div>
           </div>
 
-          <section className={styles.pricingSection}>
-            <h1 className={styles.heroTitle}>{copy.pageTitle}</h1>
-            <h2 className={styles.heroSubtitle}>{copy.pageSub}</h2>
-
-            <div className={styles.planList} role="radiogroup" aria-label={copy.choosePlanAria}>
-              {PLANS.map((plan, index) => {
-                const active = selected === plan.id
-                const translatedPlan = copy.plans[index] ?? copy.plans[0]
-                const pricing = PRICING[lang]?.[plan.id as '7d'|'1m'|'3m']?.[variant] ?? PRICING.en[plan.id as '7d'|'1m'|'3m'].base
-                const fullPrice = parsePrice(pricing.oldPrice)
-                const introPrice = parsePrice(pricing.price)
-                const savings = Math.max(0, fullPrice - introPrice)
-                const discountPercent = fullPrice > 0 ? Math.round((savings / fullPrice) * 100) : 0
-                return (
-                  <button
-                    key={plan.id}
-                    type="button"
-                    className={`${styles.planCard} ${translatedPlan?.badge ? styles.planCardWithRibbon : ''} ${active ? styles.planCardActive : ''}`}
-                    onClick={() => setSelected(plan.id)}
-                    role="radio"
-                    aria-checked={active}
-                    aria-label={`${translatedPlan?.name ?? plan.name}, ${plan.price}`}
-                  >
-                    {translatedPlan?.badge && <div className={styles.planRibbon}>{translatedPlan.badge}</div>}
-                    <div className={styles.planMainRow}>
-                      <div className={styles.planLeft}>
-                        <span className={`${styles.planRadio} ${active ? styles.planRadioActive : ''}`} />
-                        <div>
-                          <h3>{translatedPlan?.name ?? plan.name}</h3>
-                          <p className={styles.planPriceRow}>
-                            <span className={styles.planPriceOld}>{pricing.oldPrice}</span>
-                            <span>{pricing.price}</span>
-                          </p>
-                        </div>
-                      </div>
-                      <p className={styles.planDayPrice}>{pricing.perDay}</p>
-                    </div>
-                    {discountPercent > 0 && (
-                      <p className={styles.planSavings}>
-                        {copy.savingsText
-                          .replace('__AMOUNT__', pricing.oldPrice.replace(/[0-9.,]+/, savings.toFixed(0))) /* Fallback visual replace */
-                          .replace('__PERCENT__', String(discountPercent))}
-                      </p>
-                    )}
-                  </button>
-                )
-              })}
-            </div>
-
-            <a href={checkoutUrl} className={styles.primaryCta} aria-label={`${copy.cta} - ${selectedPlan.name}`}>{copy.cta}</a>
-            <div className={styles.purchaseSignals} aria-hidden="true">
-              <span>{copy.trustSecureCheckout}</span>
-              <span>{copy.trustCancelAnytime}</span>
-              <span>{copy.trustInstantAccess}</span>
-            </div>
-            <div className={styles.moneyBackRow}>
-              {copy.moneyBackRow}
-            </div>
-          </section>
+          {pricingSection(styles.pricingSectionTop)}
         </section>
 
         <section className={styles.featureBand}>
           <div className={styles.bandInner}>
             <div className={styles.featureCopy}>
+              {copy.featureIntro && <p className={styles.featureIntro}>{copy.featureIntro}</p>}
               <h2>{copy.whatYouGet}</h2>
               {copy.features.map((feature) => (
                 <div key={feature.title} className={styles.featureItem}>
@@ -384,6 +390,27 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
         </section>
 
 
+
+        <section className={styles.storiesSection}>
+          <div className={styles.storiesInner}>
+            <h2>{copy.storiesHeading}</h2>
+            <p>{copy.storiesSubheading}</p>
+            <div className={styles.storyGrid}>
+              {stories.map((story) => (
+                <article key={story.name} className={styles.storyCard}>
+                  <img src={story.photo} alt={story.name} className={styles.storyImage} />
+                  <div className={styles.storyBody}>
+                    <h3>{story.name}</h3>
+                    <span className={styles.storyVerified}>{copy.verifiedCustomer}</span>
+                    <p>{story.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {pricingSection()}
 
         <section className={styles.guaranteeSection}>
           <div className={styles.guaranteeCard}>

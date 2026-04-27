@@ -362,8 +362,9 @@ function StepContent({
 
     return (
       <>
-        <main className={styles.main} style={{ paddingBottom: 32 }}>
-          <div className={styles.content}>
+        <main className={styles.main} style={{ justifyContent: 'center' }}>
+          <div className={styles.bmiContent}>
+            <p className={styles.bmiPageLabel}>{t.bmi_page_label}</p>
             <BMICard
               bmi={bmi}
               gender={gender}
@@ -388,7 +389,7 @@ function StepContent({
             />
           </div>
         </main>
-        <QuizFooter onClick={() => navigate('forward')} sticky={false} label={stepData.buttonLabel} />
+        <QuizFooter onClick={() => navigate('forward')} label={stepData.buttonLabel} />
       </>
     )
   }

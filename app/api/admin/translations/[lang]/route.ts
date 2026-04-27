@@ -16,6 +16,7 @@ const INTRO_VISIBLE_KEYS = new Set<string>([
   'intro.headline',
   'intro.subheadline',
   'intro.choose_label',
+  'intro.select_language',
   'intro.gender_men',
   'intro.gender_women',
   'intro.footer_manage',

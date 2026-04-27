@@ -120,14 +120,17 @@
   padding-left: 0;
 }
 
-.optionNoImage .optionLabel {
-  max-width: 80%;
-}
-
 .optionNoImage .optionIcon {
   position: absolute;
-  left: 20px;
+  left: 16px;
   margin: 0;
+}
+
+/* Push centered text clear of the absolute icon on both sides */
+.optionNoImage .optionLabel {
+  padding-left: 56px;
+  padding-right: 56px;
+  max-width: 100%;
 }
 
 .optionSelected .optionLabel {

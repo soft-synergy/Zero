@@ -4,6 +4,7 @@
   "intro.headline": "Přizpůsobeno Vašemu tělu a životnímu stylu",
   "intro.subheadline": "Jednoduchý, personalizovaný plán pro snížení chutí, detoxikaci těla a hubnutí",
   "intro.choose_label": "Vyberte si svou osobní výzvu:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Pro muže",
   "intro.gender_women": "Pro ženy",
   "intro.age_group_label": "Vyberte svou věkovou skupinu",
@@ -415,5 +416,6 @@
   "ui.continue": "Pokračovat",
   "ui.skip": "Přeskočit tuto otázku",
   "ui.go_back": "Zpět",
-  "ui.quiz_progress": "Průběh testu"
+  "ui.quiz_progress": "Průběh testu",
+  "stepPage.bmi_page_label": "Váš osobní přehled"
 }

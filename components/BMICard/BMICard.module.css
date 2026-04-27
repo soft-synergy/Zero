@@ -53,9 +53,7 @@
 
 /* ─── BODY ──────────────────────────────────────────────────────── */
 .body {
-  position: relative;
-  padding: 22px 24px 24px;
-  min-height: 260px;
+  padding: 18px 20px 0;
   overflow: hidden;
 }
 
@@ -63,8 +61,8 @@
   font-size: 15px;
   line-height: 1.55;
   color: var(--color-text, #1a1a18);
-  margin-bottom: 22px;
-  max-width: 58%;
+  margin-bottom: 14px;
+  max-width: 100%;
 }
 
 .description strong {
@@ -72,12 +70,20 @@
   font-weight: 700;
 }
 
+/* ─── INFO + PHOTO ROW ──────────────────────────────────────────── */
+.infoPhotoRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
 /* ─── INFO ROWS ─────────────────────────────────────────────────── */
 .infoList {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 58%;
+  gap: 10px;
+  padding-bottom: 18px;
 }
 
 .infoRow {
@@ -121,11 +127,9 @@
 
 /* ─── PERSON PHOTO ──────────────────────────────────────────────── */
 .photoWrap {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 46%;
-  height: 300px;
+  width: 42%;
+  height: 190px;
+  flex-shrink: 0;
   pointer-events: none;
 }
 
@@ -134,7 +138,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  max-width: 100%;
 }
 
 .risksLabel {
@@ -158,69 +163,63 @@
 
 @media (max-width: 640px) {
   .header {
-    padding: 14px 16px 0;
+    padding: 12px 14px 0;
   }
 
   .bmiCategory {
-    font-size: 26px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 6px;
   }
 
   .gaugeWrap {
-    max-width: 90%;
+    max-width: 86%;
   }
 
   .body {
-    padding: 14px 16px 16px;
-    min-height: 220px;
+    padding: 14px 14px 0;
   }
 
   .description {
-    font-size: 14px;
-    max-width: 56%;
-    margin-bottom: 14px;
+    font-size: 13px;
+    margin-bottom: 10px;
   }
 
   .infoList {
-    max-width: 56%;
-    gap: 10px;
+    gap: 8px;
+    padding-bottom: 14px;
   }
 
   .infoIconWrap {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .infoIcon {
+    width: 20px;
+    height: 20px;
   }
 
   .infoValue {
-    font-size: 14px;
+    font-size: 13px;
+  }
+
+  .infoLabel {
+    font-size: 11px;
   }
 
   .photoWrap {
-    width: 46%;
-    height: 240px;
+    width: 44%;
+    height: 160px;
   }
 
-  /* risks pills override: full width */
   .risksList {
-    max-width: 100%;
-    margin-bottom: 12px;
-  }
-}
-
-@media (max-width: 400px) {
-  .body {
-    min-height: 200px;
+    margin-bottom: 10px;
+    gap: 5px;
   }
 
-  .description {
-    max-width: 54%;
-  }
-
-  .infoList {
-    max-width: 54%;
-  }
-
-  .photoWrap {
-    height: 210px;
+  .risksPill {
+    font-size: 12px;
+    padding: 3px 8px;
   }
 }

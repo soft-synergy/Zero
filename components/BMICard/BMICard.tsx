@@ -270,6 +270,7 @@ export default function BMICard({
 
       {/* ── white body ── */}
       <div className={styles.body}>
+        {/* Risks / description — full width, no photo overlap */}
         {cat.isRisks ? (
           <div className={styles.risksList}>
             <span className={styles.risksLabel}>{cat.descriptionLabel}</span>
@@ -288,30 +289,33 @@ export default function BMICard({
           </p>
         )}
 
-        <div className={styles.infoList}>
-          {[
-            { Icon: IconLifestyle, label: labels.labelLifestyle, value: lifestyle },
-            { Icon: IconExercise,  label: labels.labelExercise, value: exercise },
-            { Icon: IconWorkout,   label: labels.labelWorkout,  value: workoutFrequency },
-          ].map(({ Icon, label, value }) => (
-            <div key={label} className={styles.infoRow}>
-              <div className={styles.infoIconWrap}><Icon /></div>
-              <div>
-                <span className={styles.infoLabel}>{label}</span>
-                <span className={styles.infoValue}>{value}</span>
+        {/* Info rows + photo side by side */}
+        <div className={styles.infoPhotoRow}>
+          <div className={styles.infoList}>
+            {[
+              { Icon: IconLifestyle, label: labels.labelLifestyle, value: lifestyle },
+              { Icon: IconExercise,  label: labels.labelExercise, value: exercise },
+              { Icon: IconWorkout,   label: labels.labelWorkout,  value: workoutFrequency },
+            ].map(({ Icon, label, value }) => (
+              <div key={label} className={styles.infoRow}>
+                <div className={styles.infoIconWrap}><Icon /></div>
+                <div>
+                  <span className={styles.infoLabel}>{label}</span>
+                  <span className={styles.infoValue}>{value}</span>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* person photo */}
-        <div className={styles.photoWrap}>
-          <img
-            src={photo}
-            alt=""
-            aria-hidden="true"
-            style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom center' }}
-          />
+          {/* person photo */}
+          <div className={styles.photoWrap}>
+            <img
+              src={photo}
+              alt=""
+              aria-hidden="true"
+              style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom center' }}
+            />
+          </div>
         </div>
       </div>
     </div>

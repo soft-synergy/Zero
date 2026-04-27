@@ -4,6 +4,7 @@
   "intro.headline": "Pritaikyta jūsų kūnui ir gyvenimo būdui",
   "intro.subheadline": "Paprastas, individualizuotas planas, padėsiantis sumažinti alkį, detoksikuoti organizmą ir atsikratyti viršsvorio",
   "intro.choose_label": "Pasirinkite savo asmeninį iššūkį:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Vyrams",
   "intro.gender_women": "Moterims",
   "intro.age_group_label": "Pasirinkite savo amžiaus grupę",
@@ -415,5 +416,6 @@
   "ui.continue": "Tęsti",
   "ui.skip": "Praleisti šį klausimą",
   "ui.go_back": "Grįžti",
-  "ui.quiz_progress": "Apklausos eiga"
+  "ui.quiz_progress": "Apklausos eiga",
+  "stepPage.bmi_page_label": "Jūsų asmeninis apžvalga"
 }

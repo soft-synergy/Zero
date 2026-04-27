@@ -4,6 +4,7 @@
   "intro.headline": "Pielāgots jūsu ķermenim un dzīvesveidam",
   "intro.subheadline": "Vienkāršs, personalizēts plāns, lai samazinātu tieksmi pēc ēdiena, detoksicētu organismu un zaudētu svaru",
   "intro.choose_label": "Izvēlieties savu personalizēto izaicinājumu:",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "Vīriešiem",
   "intro.gender_women": "Sievietēm",
   "intro.age_group_label": "Izvēlieties savu vecuma grupu",
@@ -415,5 +416,6 @@
   "ui.continue": "Turpināt",
   "ui.skip": "Izlaist šo jautājumu",
   "ui.go_back": "Atgriezties",
-  "ui.quiz_progress": "Viktorīnas progress"
+  "ui.quiz_progress": "Viktorīnas progress",
+  "stepPage.bmi_page_label": "Jūsu personīgais kopsavilkums"
 }

@@ -141,6 +141,7 @@ export function applyStepPageOverrides(
     char_count: o('char_count')
       ? (n: number) => o('char_count')!.replace('__N__', String(n))
       : t.char_count,
+    bmi_page_label: o('bmi_page_label') ?? t.bmi_page_label,
     bmi_card_title: o('bmi_card_title') ?? t.bmi_card_title,
     bmi_cat_underweight: o('bmi_cat_underweight') ?? t.bmi_cat_underweight,
     bmi_cat_normal: o('bmi_cat_normal') ?? t.bmi_cat_normal,
@@ -297,6 +298,9 @@ export function applyPaywallOverrides<T extends Record<string, unknown>>(
       patch[key] = (val: string) => v.replace('__V__', val)
     } else if (key === 'consentBody') {
       patch[key] = (today: string, renew: string) => v.replace('__TODAY__', today).replace('__RENEW__', renew)
+    } else if (key === 'purchaseLegal') {
+      patch[key] = (introPrice: string, renewalPrice: string, planLabel: string, renewalPeriod: string) =>
+        v.replace('__INTRO__', introPrice).replace('__RENEWAL__', renewalPrice).replace('__PLAN__', planLabel).replace('__PERIOD__', renewalPeriod)
     } else if (key === 'fitnessAgeValue') {
       patch[key] = (years: number) => v.replace('__YEARS__', String(years))
     }

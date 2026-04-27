@@ -4,6 +4,7 @@
   "intro.headline": "為您的體質與生活方式量身定制",
   "intro.subheadline": "一個簡單且個人化的計畫，幫助您減少食慾、排毒並減輕體重",
   "intro.choose_label": "選擇您的個人化挑戰：",
+  "intro.select_language": "Select Language",
   "intro.gender_men": "男性專用",
   "intro.gender_women": "女性專用",
   "intro.age_group_label": "選擇您的年齡範圍",
@@ -415,5 +416,6 @@
   "ui.continue": "繼續",
   "ui.skip": "跳過此問題",
   "ui.go_back": "返回",
-  "ui.quiz_progress": "問卷進度"
+  "ui.quiz_progress": "問卷進度",
+  "stepPage.bmi_page_label": "您的個人摘要"
 }
