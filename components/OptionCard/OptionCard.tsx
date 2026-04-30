@@ -87,7 +87,8 @@ export default function OptionCard({
             alt=""
             width={110}
             height={90}
-            loading="lazy"
+            loading="eager"
+            sizes="(max-width: 480px) 80px, 110px"
             onLoad={() => setImgLoaded(true)}
             onError={() => setImgLoaded(true)}
           />
