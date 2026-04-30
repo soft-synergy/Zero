@@ -268,6 +268,8 @@ function serializePaywall(lang: LangCode): Record<string, string> {
   result['paywall.storiesHeading'] = copy.storiesHeading
   result['paywall.storiesSubheading'] = copy.storiesSubheading
   result['paywall.verifiedCustomer'] = copy.verifiedCustomer
+  result['paywall.readMore'] = copy.readMore
+  result['paywall.readLess'] = copy.readLess
   result['paywall.choosePlanAria'] = copy.choosePlanAria
   result['paywall.savingsText'] = copy.savingsText
   result['paywall.trustSecureCheckout'] = copy.trustSecureCheckout
@@ -548,6 +550,8 @@ function buildPaywallCopy(flat: Record<string, string>): Copy {
     storiesHeading: paywall.storiesHeading ?? '',
     storiesSubheading: paywall.storiesSubheading ?? '',
     verifiedCustomer: paywall.verifiedCustomer ?? '',
+    readMore: paywall.readMore ?? 'Read more',
+    readLess: paywall.readLess ?? 'Read less',
     choosePlanAria: paywall.choosePlanAria ?? '',
     savingsText: paywall.savingsText ?? '',
     trustSecureCheckout: paywall.trustSecureCheckout ?? '',
@@ -703,6 +707,8 @@ function renderPaywallObject(copy: Copy): string {
   storiesHeading: ${quote(copy.storiesHeading)},
   storiesSubheading: ${quote(copy.storiesSubheading)},
   verifiedCustomer: ${quote(copy.verifiedCustomer)},
+  readMore: ${quote(copy.readMore)},
+  readLess: ${quote(copy.readLess)},
   choosePlanAria: ${quote(copy.choosePlanAria)},
   savingsText: ${quote(copy.savingsText)},
   trustSecureCheckout: ${quote(copy.trustSecureCheckout)},

@@ -160,6 +160,33 @@ function ProgressBars({ count }: { count: number }) {
 
 
 
+function StoryCard({ story, readMoreLabel, readLessLabel, verifiedLabel }: {
+  story: { photo: string; name: string; text: string; stars: number }
+  readMoreLabel: string
+  readLessLabel: string
+  verifiedLabel: string
+}) {
+  const [expanded, setExpanded] = useState(false)
+  return (
+    <article className={styles.storyCard}>
+      <img src={story.photo} alt={story.name} className={styles.storyImage} />
+      <div className={styles.storyBody}>
+        <h3>{story.name}</h3>
+        <span className={styles.storyVerified}>{verifiedLabel}</span>
+        <p className={expanded ? styles.storyText : styles.storyTextClamped}>{story.text}</p>
+        <button
+          type="button"
+          className={styles.readMoreBtn}
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+        >
+          {expanded ? readLessLabel : readMoreLabel}
+        </button>
+      </div>
+    </article>
+  )
+}
+
 function SealIcon() {
   return (
     <svg viewBox="0 0 120 120" className={styles.sealIcon} aria-hidden="true">
@@ -402,14 +429,13 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
             <p>{copy.storiesSubheading}</p>
             <div className={styles.storyGrid}>
               {stories.map((story) => (
-                <article key={story.name} className={styles.storyCard}>
-                  <img src={story.photo} alt={story.name} className={styles.storyImage} />
-                  <div className={styles.storyBody}>
-                    <h3>{story.name}</h3>
-                    <span className={styles.storyVerified}>{copy.verifiedCustomer}</span>
-                    <p>{story.text}</p>
-                  </div>
-                </article>
+                <StoryCard
+                  key={story.name}
+                  story={story}
+                  readMoreLabel={copy.readMore}
+                  readLessLabel={copy.readLess}
+                  verifiedLabel={copy.verifiedCustomer}
+                />
               ))}
             </div>
           </div>
