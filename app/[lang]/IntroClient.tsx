@@ -75,14 +75,6 @@ export default function IntroClient({ lang }: { lang: LangCode }) {
 
       <div className={`${styles.footerBand} ${showFooter ? styles.footerVisible : ''}`}>
         <footer className={styles.footer}>
-          <nav className={styles.footerNav} aria-label="Footer">
-            <a href="#">{t.footer_manage}</a>
-            <a href="#">{t.footer_about}</a>
-            <a href="#">{t.footer_help}</a>
-            <a href={QUIZ_URLS.privacyPolicy(lang)}>{t.footer_privacy}</a>
-            <a href={QUIZ_URLS.termsOfService(lang)}>{t.footer_conditions}</a>
-          </nav>
-
           <div className={styles.footerLangSwitcher}>
             <label htmlFor="intro-lang-switcher">{t.select_language}</label>
             <select
@@ -110,17 +102,6 @@ export default function IntroClient({ lang }: { lang: LangCode }) {
                 {t.footer_disclaimer}
               </p>
               <p className={styles.footerCopy}>{t.footer_copy}</p>
-            </div>
-
-            <div className={styles.storeBadges} aria-hidden="true">
-              <div className={styles.storeBadge}>
-                <span className={styles.storeBadgeOver}>{t.footer_app_store_over}</span>
-                <span className={styles.storeBadgeMain}>{t.footer_app_store_main}</span>
-              </div>
-              <div className={styles.storeBadge}>
-                <span className={styles.storeBadgeOver}>{t.footer_google_play_over}</span>
-                <span className={styles.storeBadgeMain}>{t.footer_google_play_main}</span>
-              </div>
             </div>
           </div>
         </footer>

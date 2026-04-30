@@ -85,7 +85,10 @@ function getCurrentVisual(gender: 'men' | 'women' | null, bmiCat: BmiCategory) {
     if (bmiCat === 'Obese') {
       return { image: '/images/woman/body_type_women_IF OBESE.png', bodyFat: 'High', level: 'Beginner', bars: 1 }
     }
-    return { image: '/images/woman/body_type_women_before_normal.png', bodyFat: bmiCat === 'Overweight' ? 'High' : 'Normal', level: bmiCat === 'Normal' ? 'Intermediate' : 'Beginner', bars: bmiCat === 'Normal' ? 2 : 1 }
+    if (bmiCat === 'Overweight') {
+      return { image: '/images/woman/body type_BMI is in a high range..png', bodyFat: 'High', level: 'Beginner', bars: 1 }
+    }
+    return { image: '/images/woman/body_type_women_before_normal.png', bodyFat: 'Normal', level: 'Intermediate', bars: 2 }
   }
 
   if (bmiCat === 'Obese') {
@@ -319,8 +322,10 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
             <span className={styles.stickyTimerLabel}>{copy.stickyTimerLabel}</span>
             <div className={`${styles.stickyTimer} ${isUrgent ? styles.stickyTimerUrgent : ''}`} aria-live="polite">
               <strong>{minutes}:{seconds}</strong>
-              <span>{copy.stickyMinutesLabel}</span>
-              <span>{copy.stickySecondsLabel}</span>
+              <div className={styles.stickyTimerUnits}>
+                <span>{copy.stickyMinutesLabel}</span>
+                <span>{copy.stickySecondsLabel}</span>
+              </div>
             </div>
           </div>
           <a href={checkoutUrl} className={styles.stickyCta}>{copy.cta}</a>
