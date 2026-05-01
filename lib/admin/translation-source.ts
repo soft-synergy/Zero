@@ -475,6 +475,8 @@ function buildPaywallCopy(flat: Record<string, string>): Copy {
   }
 
   return {
+    readMore: paywall.readMore ?? 'Read more',
+    readLess: paywall.readLess ?? 'Read less',
     plans: Object.keys(plansByIdx)
       .map(Number)
       .sort((a, b) => a - b)
@@ -552,8 +554,6 @@ function buildPaywallCopy(flat: Record<string, string>): Copy {
     storiesHeading: paywall.storiesHeading ?? '',
     storiesSubheading: paywall.storiesSubheading ?? '',
     verifiedCustomer: paywall.verifiedCustomer ?? '',
-    readMore: paywall.readMore || 'Read more',
-    readLess: paywall.readLess || 'Read less',
     choosePlanAria: paywall.choosePlanAria ?? '',
     savingsText: paywall.savingsText ?? '',
     trustSecureCheckout: paywall.trustSecureCheckout ?? '',
