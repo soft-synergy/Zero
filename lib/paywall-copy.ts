@@ -86,7 +86,7 @@ export type Copy = {
   secretGiftBody: string
   giftSectionTitle: string
   giftSectionHighlight: string
-  giftSectionWorth: string
+  giftSectionWorth?: string
   giftSectionBody: string
   guaranteeLinkLabel: string
   guaranteePrefix: string
@@ -125,8 +125,6 @@ export const EN: Copy = {
   discount: (v) => "with __V__ discount".replace("__V__", String(v)),
   perDay: (v) => "≈ __V__ per day".replace("__V__", String(v)),
   moneyBackRow: "30-day money-back guarantee — Try it with no risk. If it is not right for you, you can get your money back.",
-  purchaseLegal: (introPrice, renewalPrice, planLabel, renewalPeriod) =>
-    `By clicking Start my plan, you agree to pay ${introPrice} for the ${planLabel} intro plan. If you do not cancel before it ends, you will be charged ${renewalPrice} every ${renewalPeriod} until you cancel. You can cancel anytime online from your account.`,
   cta: "Start my plan",
   consentPrefix: "By continuing, you agree to our",
   terms: "Terms of Use",
@@ -149,7 +147,6 @@ export const EN: Copy = {
   bulletTitle: "With Zero Carbs Challenge, you can:",
   bullets: ["Build confidence", "Boost your energy", "Reduce stress", "Support your body over time"],
   whatYouGet: "What you get",
-  featureIntro: "The Personalized Zero Carbs Challenge was created to help you feel more in control around food, cravings, and daily choices.",
   phoneMealTag: "Breakfast",
   phoneMealTitle: "Fried Salmon with Green Beans",
   phoneMealMeta: "4.8 · 10 min · 498 kcal",
@@ -195,10 +192,8 @@ export const EN: Copy = {
   secretGiftBody: "The Zero Carbs Challenge team wants to support your relationship with food transformation and prepared a secret surprise for you.",
   giftSectionTitle: "Buy 3 month plan and get",
   giftSectionHighlight: "SECRET gift",
-  giftSectionWorth: " (worth $50)",
   giftSectionBody: "The Zero Carbs Challenge team wants to support your relationship with food transformation and prepared a secret surprise for you.",
   guaranteePrefix: "See our",
-  guaranteeSuffix: " for full details and conditions.",
   personalHeading: (name) => "__NAME__, build real results at your own pace".replace("__NAME__", String(name)),
   guaranteeTitle: "30-Day Money-Back Guarantee",
   guaranteeBody: "We believe the Personalized Zero Carbs Challenge can help you see real progress in 4 weeks. If you do not see visible results and can show that you followed the plan, you may request your money back.",
@@ -215,7 +210,7 @@ export const EN: Copy = {
   },
 }
 
-export function localize(base: Copy, overrides: Partial<Copy>) {
+export function localize(base: Copy, overrides: Partial<Copy>): Copy {
   return {
     ...base,
     ...overrides,
@@ -321,7 +316,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Beangliavandenio iššūkio komanda nori palaikyti jūsų pokyčius ir paruošė jums staigmeną.",
   giftSectionTitle: "Gaukite SLAPTA dovaną su",
   giftSectionHighlight: "3 mėnesių planu",
-  giftSectionWorth: " (50 USD vertės)",
   giftSectionBody: "Beangliavandenio iššūkio komanda nori palaikyti jūsų pokyčius ir paruošė jums staigmeną.",
   guaranteePrefix: "Sužinokite daugiau apie taikomus apribojimus mūsų",
   personalHeading: (name) => "__NAME__, pasiekite rezultatų savo tempu".replace("__NAME__", String(name)),
@@ -430,7 +424,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Zero Carbs izaicinājuma komanda vēlas atbalstīt jūsu attiecību ar ēdienu transformāciju un ir sagatavojusi jums slepenu pārsteigumu.",
   giftSectionTitle: "Pērc 3 mēnešu plānu un saņem",
   giftSectionHighlight: "SLEPENO dāvanu",
-  giftSectionWorth: " ($50 vērtībā)",
   giftSectionBody: "Zero Carbs izaicinājuma komanda vēlas atbalstīt jūsu attiecību ar ēdienu transformāciju un ir sagatavojusi jums slepenu pārsteigumu.",
   guaranteePrefix: "Uzziniet vairāk par piemērojamajiem ierobežojumiem mūsu",
   personalHeading: (name) => "__NAME__, gūstiet reālus rezultātus savā tempā".replace("__NAME__", String(name)),
@@ -539,7 +532,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Echipa Provocării Fără Carbohidrați dorește să îți susțină transformarea relației cu mâncarea și ți-a pregătit o surpriză secretă.",
   giftSectionTitle: "Cumpără planul de 3 luni și primești un",
   giftSectionHighlight: "CADOU SECRET",
-  giftSectionWorth: " (în valoare de 50$)",
   giftSectionBody: "Echipa Provocării Fără Carbohidrați dorește să îți susțină transformarea relației cu mâncarea și ți-a pregäti o surpriză secretă.",
   guaranteePrefix: "Află mai multe despre limitările aplicabile în",
   personalHeading: (name) => "__NAME__, obține rezultate reale în ritmul tău".replace("__NAME__", String(name)),
@@ -648,7 +640,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Tým výzvy bez sacharidů chce podpořit Vaši změnu a připravil pro Vás tajné překvapení.",
   giftSectionTitle: "Kupte si 3měsíční plán a získejte",
   giftSectionHighlight: "TAJNÝ dárek",
-  giftSectionWorth: " (v hodnotě 50 USD)",
   giftSectionBody: "Tým výzvy bez sacharidů chce podpořit Vaši změnu a připravil pro Vás tajné překvapenie.",
   guaranteePrefix: "Více o platných omezeních v našich",
   personalHeading: (name) => "__NAME__, dosáhněte skutečných výsledků vlastním tempem".replace("__NAME__", String(name)),
@@ -757,7 +748,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Holdet bag Zero Carbs-udfordringen ønsker at støtte din transformation og har forberedt en hemmelig overraskelse til dig.",
   giftSectionTitle: "Køb 3-måneders plan og få en",
   giftSectionHighlight: "HEMMELIG gave",
-  giftSectionWorth: " (værdi 50 USD)",
   giftSectionBody: "Holdet bag Zero Carbs-udfordringen ønsker at støtte din transformation og har forberedt en hemmelig overraskelse til dig.",
   guaranteePrefix: "Find mere om gældende begrænsninger i vores",
   personalHeading: (name) => "__NAME__, skab virkelige resultater i dit eget tempo".replace("__NAME__", String(name)),
@@ -866,7 +856,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Η ομάδα του Zero Carbs Challenge θέλει να υποστηρίξει τη μεταμόρφωση της σχέσης σας με το φαγητό και σας ετοίμασε μια μυστική έκπληξη.",
   giftSectionTitle: "Αγοράστε το 3μηνο πρόγραμμα και κερδίστε",
   giftSectionHighlight: "ΜΥΣΤΙΚΟ δώρο",
-  giftSectionWorth: " (αξίας $50)",
   giftSectionBody: "Η ομάδα του Zero Carbs Challenge θέλει να υποστηρίξει τη μεταμόρφωση της σχέσης σας με το φαγητό και σας ετοίμασε μια μυστική έκπληξη.",
   guaranteePrefix: "Βρείτε περισσότερα για τους ισχύοντες περιορισμούς στην",
   personalHeading: (name) => "__NAME__, χτίστε πραγματικά αποτελέσματα με το δικό σας ρυθμό".replace("__NAME__", String(name)),
@@ -975,7 +964,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "A Zero Carbs kihívás csapata szeretné támogatni az étellel való kapcsolatod átalakulását, ezért egy titkos meglepetést készített neked.",
   giftSectionTitle: "Vásárold meg a 3 hónapos csomagot och kapd meg a",
   giftSectionHighlight: "TITKOS ajándékot",
-  giftSectionWorth: " (50 USD értékben)",
   giftSectionBody: "A Zero Carbs kihívás csapata szeretné támogatni az étellel való kapcsolatod átalakulását, ezért egy titkos meglepetést készített neked.",
   guaranteePrefix: "További információ a korlátozásokról itt:",
   personalHeading: (name) => "__NAME__, építs valódi eredményeket a saját tempódban".replace("__NAME__", String(name)),
@@ -1084,7 +1072,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Tim izazova bez ugljikohidrata želi podržati vašu transformaciju odnosa s hranom i pripremio je tajno iznenađenje za vas.",
   giftSectionTitle: "Kupite 3-mjesečni plan i dobijte",
   giftSectionHighlight: "TAJNI dar",
-  giftSectionWorth: " (vrijednost 50 USD)",
   giftSectionBody: "Tim izazova bez ugljikohidrata želi podržati vašu transformaciju odnosa s hranom i pripremio je tajno iznenađenje za vas.",
   guaranteePrefix: "Saznajte više o primjenjivim ograničenjima u našim",
   personalHeading: (name) => "__NAME__, ostvarite stvarne rezultate vlastitim tempom".replace("__NAME__", String(name)),
@@ -1193,7 +1180,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "צוות אתגר אפס פחמימות רוצה לתמוך בשינוי הקשר שלך עם אוכל והכין עבורך הפתעה סודית.",
   giftSectionTitle: "קנה/י תוכנית ל-3 חודשים וקבל/י",
   giftSectionHighlight: "מתנה סודית",
-  giftSectionWorth: " (בשווי $50)",
   giftSectionBody: "צוות אתגר אפס פחמימות רוצה לתמוך בשינוי הקשר שלך עם אוכל והכין עבורך הפתעה סודית.",
   guaranteePrefix: "למדו עוד על ההגבלות החלות ב",
   personalHeading: (name) => "__NAME__, השיגו תוצאות אמיתיות בקצב שלכם".replace("__NAME__", String(name)),
@@ -1302,7 +1288,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Zero Carbs チャレンジチームは、あなたの食生活の改善をサポートし、特別なサプライズをご用意しました。",
   giftSectionTitle: "3ヶ月プランを購入してゲット：",
   giftSectionHighlight: "シークレットギフト",
-  giftSectionWorth: "（50ドル相当）",
   giftSectionBody: "Zero Carbs チャレンジチームは、あなたの食生活の改善をサポートし、特別なサプライズをご用意しました。",
   guaranteePrefix: "適用される制限事項の詳細は、当社の",
   personalHeading: (name) => "__NAME__さん、自分のペースで確かな結果を".replace("__NAME__", String(name)),
@@ -1411,7 +1396,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Команда челленджа «Без углеводов» хочет поддержать вашу трансформацию отношений с едой и подготовила для вас секретный сюрприз.",
   giftSectionTitle: "Купите 3-месячный план и получите",
   giftSectionHighlight: "СЕКРЕТНЫЙ подарок",
-  giftSectionWorth: " (стоимостью $50)",
   giftSectionBody: "Команда челленджа «Без углеводов» хочет поддержать вашу трансформацию отношений с едой и подготовила для вас секретный сюрприз.",
   guaranteePrefix: "Узнайте больше о действующих ограничениях в нашей",
   personalHeading: (name) => "__NAME__, создавайте реальные результаты в своем темпе".replace("__NAME__", String(name)),
@@ -1520,7 +1504,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Tím výzvy bez sacharidov chce podporiť vašu zmenu a pripravil pre vás tajné prekvapenie.",
   giftSectionTitle: "Kúpte si 3-mesačný plán a získajte",
   giftSectionHighlight: "TAJNÝ darček",
-  giftSectionWorth: " (v hodnote 50 USD)",
   giftSectionBody: "Tím výzvy bez sacharidov chce podporiť vašu zmenu a pripravil pre vás tajné prekvapenie.",
   guaranteePrefix: "Viac o platných obmedzeniach v našich",
   personalHeading: (name) => "__NAME__, dosiahnite skutočné výsledky vlastným tempom".replace("__NAME__", String(name)),
@@ -1629,7 +1612,6 @@ export const COPY: Record<LangCode, Copy> = {
   secretGiftBody: "Zero Carbs 挑戰團隊希望能支援您與食物關係的轉變，並為您準備了神秘驚喜。",
   giftSectionTitle: "購買 3 個月計畫即可獲得",
   giftSectionHighlight: "神秘禮物",
-  giftSectionWorth: " (價值 $50)",
   giftSectionBody: "Zero Carbs 挑戰團隊希望能支援您與食物關係的轉變，並為您準備了神秘驚喜。",
   guaranteePrefix: "在我們的內容中尋找更多關於適用限制的資訊",
   personalHeading: (name) => "__NAME__，按您的節奏建立真正的結果".replace("__NAME__", String(name)),

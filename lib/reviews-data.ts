@@ -50,26 +50,26 @@ export const REVIEWS: Record<LangCode, Review[]> = {
     { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "It gave me a good start", text: "This challenge helped me get back on track. It gave me the push I needed to start taking care of myself again.", stars: 5 }
   ],
   lt: [
-    { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Man labai patiko šis planas", text: "Man labai patiko individualizuotas Zero Carbs iššūkis. Laikydamasi plano, per 28 dienas numečiau svorio. Programėlė buvo lengvai naudojama, o patiekalai – paprasti, skanūs ir nesudėtingai paruošiami.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Patiekalai buvo lengvai suprantami", text: "Man patiko, kad patiekalai buvo paprasti ir nereikalavo daug laiko. Dėl to visas iššūkis man buvo daug lengvesnis.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=53", name: "Danielius, 56", title: "Tai puikiai tiko mano užimtam gyvenimui", text: "Neturiu daug laisvo laiko, todėl man reikėjo kažko paprasto. Šį iššūkį buvo lengva laikytis net ir tomis dienomis, kai labai užimta.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=32", name: "Sara, 38", title: "Tai suteikė puikią pradžią", text: "Šis iššūkis padėjo man grįžti į vėžes. Jis davė man impulsą, kurio reikėjo, kad vėl pradėčiau rūpintis savimi.", stars: 5 }
+    { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Tikrai mėgavausi šiuo planu", text: "Man labai patiko individualizuotas Zero Carbs iššūkis. Laikydamasi plano, per 28 dienas numečiau svorio. Programėlė buvo lengvai naudojama, o patiekalai – paprasti, skanūs ir nesudėtingai paruošiami.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Patiekalus buvo lengva laikytis", text: "Man patiko, kad patiekalai buvo paprasti ir nereikalavo daug laiko. Dėl to visas iššūkis man buvo daug lengvesnis.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=53", name: "Danielius, 56", title: "Tai tiko į mano užimtą gyvenimą", text: "Neturiu daug laisvo laiko, todėl man reikėjo kažko paprasto. Šį iššūkį buvo lengva laikytis net ir tomis dienomis, kai labai užimta.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=32", name: "Sara, 38", title: "Tai davė man gerą pradžią", text: "Šis iššūkis padėjo man grįžti į vėžes. Jis davė man impulsą, kurio reikėjo, kad vėl pradėčiau rūpintis savimi.", stars: 5 }
   ],
   lv: [
-    { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Man ļoti patika šis plāns", text: "Man ļoti patika personalizētais Zero Carbs izaicinājums. Sekojot plānam, es spēju zaudēt svaru 28 dienās. Lietotne bija ērta, un maltītes bija vienkāršas, garšīgas un viegli pagatavojamas.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Maltītes bija viegli saprotamas", text: "Man patika, ka maltītes bija vienkāršas un neaizņēma daudz laika. Tas padarīja visu izaicinājumu daudz vieglāku man.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=53", name: "Daniels, 56", title: "Tas iederējās manā aizņemtajā dzīvē", text: "Man nav daudz brīvā laika, tāpēc man bija vajadzīgs kaut kas vienkāršs. Šim izaicinājumam bija viegli sekot pat saspringtās dienās.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=32", name: "Sāra, 38", title: "Tas man sniedza labu sākumu", text: "Šis izaicinājums palīdzēja man atgriezties pareizā ceļā. Tas man deva vajadzīgo stimulu, lai sāktu atkal parūpēties par sevi.", stars: 5 }
+    { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Man patiešām patika šis plāns", text: "Man ļoti patika personalizētais Zero Carbs izaicinājums. Sekojot plānam, es spēju zaudēt svaru 28 dienās. Lietotne bija ērta, un maltītes bija vienkāršas, garšīgas un viegli pagatavojamas.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Maltītēm bija viegli sekot", text: "Man patika, ka maltītes bija vienkāršas un neaizņēma daudz laika. Tas padarīja visu izaicinājumu daudz vieglāku man.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=53", name: "Daniels, 56", title: "Tas iekļāvās manā aizņemtajā dzīvē", text: "Man nav daudz brīvā laika, tāpēc man bija vajadzīgs kaut kas vienkāršs. Šim izaicinājumam bija viegli sekot pat saspringtās dienās.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=32", name: "Sāra, 38", title: "Tas man deva labu sākumu", text: "Šis izaicinājums palīdzēja man atgriezties pareizā ceļā. Tas man deva vajadzīgo stimulu, lai sāktu atkal parūpēties par sevi.", stars: 5 }
   ],
   ro: [
-    { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Mi-a plăcut mult acest plan", text: "Mi-a plăcut foarte mult Provocarea personalizată Zero Carbs. Urmând planul, am reușit să slăbesc în 28 de zile. Aplicația a fost ușor de folosit, iar mesele au fost simple, gustoase și ușor de preparat.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Mesele au fost ușor de urmărit", text: "Mi-a plăcut că mesele erau simple și nu necesitau mult timp. Asta a făcut întreaga provocare să pară mai ușoară pentru mine.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=53", name: "Daniel, 56", title: "S-a integrat în viața mea agitată", text: "Nu am mult timp liber, așa că aveam nevoie de ceva simplu. Această provocare a fost ușor de urmat, chiar și în zilele aglomerate.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "Mi-a oferit un început bun", text: "Această provocare m-a ajutat să revin pe drumul cel bun. Mi-a dat impulsul de care aveam nevoie pentru a începe să am grijă din nou de mine.", stars: 5 }
+    { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Mi-a plăcut foarte mult acest plan", text: "Mi-a plăcut foarte mult Provocarea personalizată Zero Carbs. Urmând planul, am reușit să slăbesc în 28 de zile. Aplicația a fost ușor de folosit, iar mesele au fost simple, gustoase și ușor de preparat.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Mesele au fost ușor de urmat", text: "Mi-a plăcut că mesele erau simple și nu necesitau mult timp. Asta a făcut întreaga provocare să pară mai ușoară pentru mine.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=53", name: "Daniel, 56", title: "S-a potrivit în viața mea agitată", text: "Nu am mult timp liber, așa că aveam nevoie de ceva simplu. Această provocare a fost ușor de urmat, chiar și în zilele aglomerate.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "Mi-a oferit un bun început", text: "Această provocare m-a ajutat să revin pe drumul cel bun. Mi-a dat impulsul de care aveam nevoie pentru a începe să am grijă din nou de mine.", stars: 5 }
   ],
   cz: [
     { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Tento plán se mi opravdu líbil", text: "Opravdu se mi líbila personalizovaná výzva Zero Carbs. Díky dodržování plánu jsem dokázala zhubnout za 28 dní. Aplikace se snadno používala a jídla byla jednoduchá, chutná a snadno se připravovala.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Jídla byla snadno sledovatelná", text: "Líbilo se mi, že jídla byla jednoduchá a nepotřebovala mnoho času. Díky tomu se celá výzva zdála pro mě mnohem jednodušší.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Jídla bylo snadné dodržovat", text: "Líbilo se mi, že jídla byla jednoduchá a nepotřebovala mnoho času. Díky tomu se celá výzva zdála pro mě mnohem jednodušší.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=53", name: "Daniel, 56", title: "Zapadlo to do mého rušného života", text: "Nemám mnoho volného času, takže jsem potřeboval/a něco jednoduchého. Tuto výzvu bylo snadné dodržovat i během rušných dní.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "Dalo mi to dobrý start", text: "Tato výzva mi pomohla vrátit se na správnou cestu. Dala mi impuls, který jsem potřeboval/a, abych znovu začal/a o sebe pečovat.", stars: 5 }
   ],
@@ -80,20 +80,20 @@ export const REVIEWS: Record<LangCode, Review[]> = {
     { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "Det gav mig en god start", text: "Denne udfordring hjalp mig med at komme tilbage på sporet. Den gav mig det skub, jeg havde brug for til at begynde at passe på mig selv igen.", stars: 5 }
   ],
   gr: [
-    { photo: "https://i.pravatar.cc/96?img=47", name: "Έλενα, 41", title: "Μου άρεσε πολύ αυτό το πρόγραμμα", text: "Μου άρεσε πολύ η εξατομικευμένη πρόκληση Zero Carbs. Ακολουθώντας το πρόγραμμα, κατάφερα να χάσω βάρος σε 28 μέρες. Η εφαρμογή ήταν εύχρηστη και τα γεύματα ήταν απλά, νόστιμα και εύκολα στην προετοιμασία.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Μαρίνα, 33", title: "Τα γεύματα ήταν εύκολα στην παρασκευή", text: "Μου άρεσε που τα γεύματα ήταν απλά και δεν χρειάζονταν πολύ χρόνο. Αυτό έκανε την όλη πρόκληση να φαίνεται πιο εύκολη για μένα.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=53", name: "Δανιήλ, 56", title: "Ταίριαξε στην πολυάσχολη ζωή μου", text: "Δεν έχω πολύ ελεύθερο χρόνο, οπότε χρειαζόμουν κάτι απλό. Αυτή η πρόκληση ήταν εύκολη να ακολουθηθεί, ακόμη και σε πολυάσχολες μέρες.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=47", name: "Έλενα, 41", title: "Απόλαυσα πραγματικά αυτό το πρόγραμμα", text: "Μου άρεσε πολύ η εξατομικευμένη πρόκληση Zero Carbs. Ακολουθώντας το πρόγραμμα, κατάφερα να χάσω βάρος σε 28 μέρες. Η εφαρμογή ήταν εύχρηστη και τα γεύματα ήταν απλά, νόστιμα και εύκολα στην προετοιμασία.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Μαρίνα, 33", title: "Τα γεύματα ήταν εύκολο να ακολουθηθούν", text: "Μου άρεσε που τα γεύματα ήταν απλά και δεν χρειάζονταν πολύ χρόνο. Αυτό έκανε την όλη πρόκληση να φαίνεται πιο εύκολη για μένα.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=53", name: "Δανιήλ, 56", title: "Ταίριαξε στη바sy ζωή μου", text: "Δεν έχω πολύ ελεύθερο χρόνο, οπότε χρειαζόμουν κάτι απλό. Αυτή η πρόκληση ήταν εύκολη να ακολουθηθεί, ακόμη και σε πολυάσχολες μέρες.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=32", name: "Σάρα, 38", title: "Μου έδωσε μια καλή αρχή", text: "Αυτή η πρόκληση με βοήθησε να επιστρέψω στον σωστό δρόμο. Μου έδωσε την ώθηση που χρειαζόμουν για να αρχίσω πάλι να φροντίζω τον εαυτό μου.", stars: 5 }
   ],
   hu: [
     { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Nagyon élveztem ezt a tervet", text: "Nagyon tetszett a személyre szabott Zero Carbs kihívás. A tervet követve sikerült 28 nap alatt fogynom. Az alkalmazás könnyen kezelhető volt, az ételek pedig egyszerűek, finomak és könnyen elkészíthetők.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Könnyű volt az étrendet követni", text: "Tetszett, hogy az ételek egyszerűek voltak és nem igényeltek sok időt. Ez az egész kihívást sokkal könnyebbé tette számomra.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=53", name: "Daniel, 56", title: "Belefért a zsúfolt hétköznapjaimba is", text: "Nincs sok szabadidőm, ezért valami egyszerűre volt szükségem. Ezt a kihívást könnyű volt követni még a zsúfolt napokon is.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Az ételeket könnyű volt követni", text: "Tetszett, hogy az ételek egyszerűek voltak és nem igényeltek sok időt. Ez az egész kihívást sokkal könnyebbé tette számomra.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=53", name: "Daniel, 56", title: "Belefért a zsúfolt életembe", text: "Nincs sok szabadidőm, ezért valami egyszerűre volt szükségem. Ezt a kihívást könnyű volt követni még a zsúfolt napokon is.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "Jó kezdést adott nekem", text: "Ez a kihívás segített visszatalálni a helyes útra. Megadta azt a lökést, amire szükségem volt ahhoz, hogy újra elkezdjem magamra figyelni.", stars: 5 }
   ],
   hr: [
     { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Zaista sam uživala u ovom planu", text: "Zaista mi se svidio personalizirani Zero Carbs izazov. Slijedeći plan, uspjela sam smršaviti u 28 dana. Aplikacija je bila jednostavna za korištenje, a obroci su bili jednostavni, ukusni i laki za pripremu.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Obroci su bili jednostavni za pratiti", text: "Svidjelo mi se što su obroci bili jednostavni i nisu trebali puno vremena. To je cijeli izazov učinilo lakšim za mene.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Obroke je bilo lako pratiti", text: "Svidjelo mi se što su obroci bili jednostavni i nisu trebali puno vremena. To je cijeli izazov učinilo lakšim za mene.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=53", name: "Daniel, 56", title: "Uklopilo se u moj užurbani život", text: "Nemam puno slobodnog vremena, pa mi je trebalo nešto jednostavno. Ovaj izazov bilo je lako pratiti, čak i u zaposlenim danima.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "Dalo mi je dobar početak", text: "Ovaj izazov pomogao mi je da se vratim na pravi put. Dao mi je poticaj koji sam trebala za ponovni početak brige o sebi.", stars: 5 }
   ],
@@ -105,19 +105,19 @@ export const REVIEWS: Record<LangCode, Review[]> = {
   ],
   jp: [
     { photo: "https://i.pravatar.cc/96?img=47", name: "エレナ、41歳", title: "このプランを本当に楽しみました", text: "パーソナライズされたZero Carbs チャレンジがとても気に入りました。プランに従うことで、28日間で体重を減らすことができました。アプリは使いやすく、食事はシンプルで美味しく、作りやすかったです。", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "マリーナ、33歳", title: "食事管理がしやすかったです", text: "食事がシンプルで時間がかからないのが良かったです。それがチャレンジ全体を私にとってより簡単に感じさせてくれました。", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "マリーナ、33歳", title: "食事を続けやすかったです", text: "食事がシンプルで時間がかからないのが良かったです。それがチャレンジ全体を私にとってより簡単に感じさせてくれました。", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=53", name: "ダニエル、56歳", title: "忙しい生活にフィットしました", text: "あまり自由な時間がないので、シンプルなものが必要でした。このチャレンジは忙しい日でも続けやすかったです。", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=32", name: "サラ、38歳", title: "良いスタートが切れました", text: "このチャレンジのおかげで、元の軌道に戻ることができました。再び自分を大切にするために必要な後押しをしてくれました。", stars: 5 }
   ],
   ru: [
     { photo: "https://i.pravatar.cc/96?img=47", name: "Елена, 41 год", title: "Этот план мне очень понравился", text: "Мне очень понравился персонализированный челлендж Zero Carbs. Следуя плану, я смогла сбросить вес за 28 дней. Приложение было удобным, а блюда — простыми, вкусными и лёгкими в приготовлении.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Марина, 33 года", title: "Блюда были простыми в приготовлении", text: "Мне понравилось, что блюда были простыми и не занимали много времени. Это сделало весь челлендж намного проще для меня.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Марина, 33 года", title: "Блюда было легко соблюдать", text: "Мне понравилось, что блюда были простыми и не занимали много времени. Это сделало весь челлендж намного проще для меня.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=53", name: "Даниил, 56 лет", title: "Это вписалось в мою насыщенную жизнь", text: "У меня не так много свободного времени, поэтому мне нужно было что-то простое. Этому челленджу было легко следовать даже в самые загруженные дни.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=32", name: "Сара, 38 лет", title: "Это дало мне хороший старт", text: "Этот челлендж помог мне вернуться в нужное русло. Он дал мне толчок, который был нужен, чтобы снова начать заботиться о себе.", stars: 5 }
   ],
   sk: [
     { photo: "https://i.pravatar.cc/96?img=47", name: "Elena, 41", title: "Tento plán sa mi naozaj páčil", text: "Naozaj sa mi páčila personalizovaná výzva Zero Carbs. Vďaka dodržiavaniu plánu sa mi podarilo schudnúť za 28 dní. Aplikácia bola ľahko ovládateľná a jedlá boli jednoduché, chutné a ľahko sa pripravovali.", stars: 5 },
-    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Jedlá bolo ľahko dodržiavateľné", text: "Páčilo sa mi, že jedlá boli jednoduché a nepotrebovali veľa času. Vďaka tomu sa celá výzva zdala oveľa jednoduchšia.", stars: 5 },
+    { photo: "https://i.pravatar.cc/96?img=44", name: "Marina, 33", title: "Jedlá bolo ľahké dodržiavať", text: "Páčilo sa mi, že jedlá boli jednoduché a nepotrebovali veľa času. Vďaka tomu sa celá výzva zdala oveľa jednoduchšia.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=53", name: "Daniel, 56", title: "Zapadlo to do môjho uponáhľaného života", text: "Nemám veľa voľného času, takže som potreboval/a niečo jednoduché. Túto výzvu bolo ľahké dodržiavať aj počas rušných dní.", stars: 5 },
     { photo: "https://i.pravatar.cc/96?img=32", name: "Sarah, 38", title: "Dal mi to dobrý štart", text: "Táto výzva mi pomohla vrátiť sa na správnu cestu. Dala mi impulz, ktorý som potreboval/a, aby som znovu začal/a o seba dbať.", stars: 5 }
   ],

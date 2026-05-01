@@ -355,6 +355,7 @@ export function serializeAll(lang: LangCode): Record<string, string> {
   const reviewsFlat: Record<string, string> = {}
   reviews.forEach((review, i) => {
     reviewsFlat[`loading.reviews.${i}.name`] = review.name
+    if (review.title) reviewsFlat[`loading.reviews.${i}.title`] = review.title
     reviewsFlat[`loading.reviews.${i}.text`] = review.text
     reviewsFlat[`loading.reviews.${i}.stars`] = String(review.stars)
     reviewsFlat[`loading.reviews.${i}.photo`] = review.photo
@@ -592,6 +593,7 @@ function buildReviews(flat: Record<string, string>): Review[] {
     .sort((a, b) => a - b)
     .map((i) => ({
       name: grouped[i].name ?? '',
+      ...(grouped[i].title ? { title: grouped[i].title } : {}),
       text: grouped[i].text ?? '',
       photo: grouped[i].photo ?? REVIEW_PHOTOS[i] ?? '',
       stars: Number(grouped[i].stars ?? 5),
@@ -742,7 +744,7 @@ function renderPaywallObject(copy: Copy): string {
 
 function renderReviewsObject<T extends Review | PaywallStory>(items: T[]): string {
   return `[
-    ${items.map((item) => `{ photo: ${quote(item.photo)}, name: ${quote(item.name)}, text: ${quote(item.text)}, stars: ${item.stars} }`).join(',\n    ')}
+    ${items.map((item) => `{ photo: ${quote(item.photo)}, name: ${quote(item.name)}${'title' in item && (item as {title?:string}).title ? `, title: ${quote((item as {title?:string}).title as string)}` : ''}, text: ${quote(item.text)}, stars: ${item.stars} }`).join(',\n    ')}
   ]`
 }
 

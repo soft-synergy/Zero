@@ -1,76 +1,63 @@
-@keyframes fadeUp {
+@keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-.outer {
+/* Outer wrapper */
+.carousel {
   width: 100%;
-  overflow: hidden;
-  padding: 8px 0 20px;
   opacity: 0;
-  animation: fadeUp 0.5s 0.5s ease both;
+  animation: fadeIn 0.5s 0.4s ease both;
 }
 
+/* Clips the slides */
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Horizontal strip of slides — transition on transform */
 .track {
   display: flex;
-  gap: 12px;
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
+/* Each slide takes 100% width */
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+/* The review card */
 .card {
-  flex: 0 0 var(--card-w, calc(100vw - 72px));
-  width: var(--card-w, calc(100vw - 72px));
-  background: var(--color-bg-white);
+  background: var(--color-bg-white, #fff);
   border-radius: 16px;
-  padding: 18px 20px 20px;
+  padding: 20px;
   box-shadow:
     0 2px 12px rgba(0, 0, 0, 0.06),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
+    0 0 0 1px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  opacity: 0.35;
-  transform: scale(0.97);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  min-height: 200px;
 }
 
-.cardActive {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.cardHeader {
+/* Top row: reviewer info + Trustpilot */
+.cardTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.reviewerInfo {
+.reviewer {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.avatarWrap {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-}
-
-.avatarSkeleton {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: linear-gradient(90deg, #e8e6e1 25%, #f0eeea 50%, #e8e6e1 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite;
-}
-
-@keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
 }
 
 .avatar {
@@ -78,19 +65,13 @@
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  display: block;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.avatarLoaded {
-  opacity: 1;
+  flex-shrink: 0;
 }
 
 .reviewerName {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-text, #1a1a1a);
 }
 
 .trustpilot {
@@ -100,13 +81,14 @@
   flex-shrink: 0;
 }
 
-.tpText {
+.tpLabel {
   font-size: 11px;
   font-weight: 600;
   color: #191919;
   letter-spacing: 0.01em;
 }
 
+/* Stars */
 .stars {
   display: flex;
   gap: 1px;
@@ -114,29 +96,55 @@
 
 .starFilled {
   font-size: 15px;
-  color: var(--color-star-filled);
+  color: var(--color-star-filled, #F5A623);
   line-height: 1;
 }
 
 .starEmpty {
   font-size: 15px;
-  color: var(--color-star-empty);
+  color: var(--color-star-empty, #ddd);
   line-height: 1;
 }
 
-.reviewTitle {
+/* Review title — bold quoted heading */
+.title {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
-  color: var(--color-text);
-  margin: 0 0 4px 0;
+  color: var(--color-text, #1a1a1a);
+  margin: 2px 0 0 0;
 }
 
-.reviewText {
+/* Review body text */
+.body {
   font-size: 13px;
   line-height: 1.6;
-  color: var(--color-text);
+  color: var(--color-text, #1a1a1a);
   margin: 0;
+}
+
+/* Navigation dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: var(--color-text, #1a1a1a);
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.dotActive {
+  opacity: 0.7;
 }
 
 @media (prefers-reduced-motion: reduce) {
