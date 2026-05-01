@@ -115,6 +115,7 @@ export default function ReviewCarousel({ reviews: reviewsProp }: { reviews?: imp
                 <span key={si} className={si < r.stars ? styles.starFilled : styles.starEmpty}>★</span>
               ))}
             </div>
+            {r.title && <p className={styles.reviewTitle}>&#8220;{r.title}&#8221;</p>}
             <p className={styles.reviewText}>{r.text}</p>
           </div>
         ))}
