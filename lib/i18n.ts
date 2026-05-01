@@ -117,6 +117,8 @@ export interface StepPageTranslations {
   bmi_desc_underweight: string
   bmi_desc_normal: string
   bmi_desc_risks: string
+  bmi_obese_label: string
+  bmi_obese_desc: string
   bmi_label_lifestyle: string
   bmi_label_exercise: string
   bmi_label_workout: string
@@ -309,14 +311,16 @@ const EN_STEP_PAGE: StepPageTranslations = {
   // BMI card
   bmi_card_title: 'Body Mass Index (BMI)',
   bmi_cat_underweight: 'Underweight',
-  bmi_cat_normal: 'Normal',
-  bmi_cat_overweight: 'Overweight',
-  bmi_cat_obese: 'Obese',
-  bmi_healthy_label: 'Healthy BMI:',
-  bmi_risks_label: 'Risks of unhealthy BMI:',
+  bmi_cat_normal: 'Healthy Range',
+  bmi_cat_overweight: 'Above healthy range',
+  bmi_cat_obese: 'High BMI',
+  bmi_healthy_label: 'Your BMI is in a healthy range.',
+  bmi_risks_label: 'Your BMI is above the healthy range.',
   bmi_desc_underweight: 'Your BMI is below the healthy range. Building strength and healthy eating habits will be your priority.',
-  bmi_desc_normal: 'Good starting BMI to tone up and get your dream body.',
-  bmi_desc_risks: 'High blood pressure, increased risk of heart attack, stroke, type 2 diabetes, chronic back and joint pain.',
+  bmi_desc_normal: 'This is a good place to start if you want to get more toned and improve your shape.',
+  bmi_desc_risks: 'This can raise the risk of high blood pressure, heart problems, type 2 diabetes, and pain in the back or joints.',
+  bmi_obese_label: 'Your BMI is in a high range.',
+  bmi_obese_desc: 'This can increase the risk of high blood pressure, heart problems, type 2 diabetes, and back or joint pain.',
   bmi_label_lifestyle: 'Lifestyle',
   bmi_label_exercise: 'Exercise',
   bmi_label_workout: 'Workout frequency',

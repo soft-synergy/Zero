@@ -382,6 +382,8 @@ function StepContent({
                 descUnderweight: t.bmi_desc_underweight,
                 descNormal: t.bmi_desc_normal,
                 descRisks: t.bmi_desc_risks,
+                descObeseLabel: t.bmi_obese_label,
+                descObese: t.bmi_obese_desc,
                 labelLifestyle: t.bmi_label_lifestyle,
                 labelExercise: t.bmi_label_exercise,
                 labelWorkout: t.bmi_label_workout,

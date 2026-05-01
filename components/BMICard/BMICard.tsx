@@ -15,6 +15,8 @@ export interface BMICardT {
   descUnderweight: string
   descNormal: string
   descRisks: string
+  descObeseLabel: string
+  descObese: string
   labelLifestyle: string
   labelExercise: string
   labelWorkout: string
@@ -41,14 +43,16 @@ interface Category {
 const DEFAULT_T: BMICardT = {
   title: 'Body Mass Index (BMI)',
   catUnderweight: 'Underweight',
-  catNormal: 'Normal',
-  catOverweight: 'Overweight',
-  catObese: 'Obese',
-  healthyLabel: 'Healthy BMI:',
-  risksLabel: 'Risks of unhealthy BMI:',
+  catNormal: 'Healthy Range',
+  catOverweight: 'Above healthy range',
+  catObese: 'High BMI',
+  healthyLabel: 'Your BMI is in a healthy range.',
+  risksLabel: 'Your BMI is above the healthy range.',
   descUnderweight: 'Your BMI is below the healthy range. Building strength and healthy eating habits will be your priority.',
-  descNormal: 'Good starting BMI to tone up and get your dream body.',
-  descRisks: 'High blood pressure, increased risk of heart attack, stroke, type 2 diabetes, chronic back and joint pain.',
+  descNormal: 'This is a good place to start if you want to get more toned and improve your shape.',
+  descRisks: 'This can raise the risk of high blood pressure, heart problems, type 2 diabetes, and pain in the back or joints.',
+  descObeseLabel: 'Your BMI is in a high range.',
+  descObese: 'This can increase the risk of high blood pressure, heart problems, type 2 diabetes, and back or joint pain.',
   labelLifestyle: 'Lifestyle',
   labelExercise: 'Exercise',
   labelWorkout: 'Workout frequency',
@@ -78,15 +82,15 @@ function getCategory(bmi: number, labels: BMICardT): Category {
     bg: '#fdeee4',
     descriptionLabel: labels.risksLabel,
     description: labels.descRisks,
-    isRisks: true,
+    isRisks: false,
   }
   return {
     label: labels.catObese,
     accent: '#cc3333',
     bg: '#fce5e2',
-    descriptionLabel: labels.risksLabel,
-    description: labels.descRisks,
-    isRisks: true,
+    descriptionLabel: labels.descObeseLabel,
+    description: labels.descObese,
+    isRisks: false,
   }
 }
 
