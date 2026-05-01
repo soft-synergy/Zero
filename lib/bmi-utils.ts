@@ -17,10 +17,10 @@ export function getBMIMarkerPercent(bmi: number): number {
   return Math.min(94, Math.max(5, ((bmi - min) / (max - min)) * 100))
 }
 
-/** Calculate projected goal date at 9.33 days per lb lost */
+/** Calculate projected goal date at 0.28 kg/day loss rate (≈ 1.62 days per lb) */
 export function getGoalDate(startWeightLbs: number, goalWeightLbs: number): string {
   const lbsToLose = Math.max(0, startWeightLbs - goalWeightLbs)
-  const days = Math.round(lbsToLose * 9.33)
+  const days = Math.round(lbsToLose * 1.62)
   const date = new Date()
   date.setDate(date.getDate() + days)
   return date.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })

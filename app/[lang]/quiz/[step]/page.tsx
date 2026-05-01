@@ -302,8 +302,8 @@ function StepContent({
       ? `${Math.round(Number(fromCanonical(String(goalLbs), 'kg', 'lbs')))} kg`
       : `${Math.round(goalLbs)} lbs`
 
-    // Projected date: ~1 lb/week loss rate
-    const weeksNeeded = Math.max(4, Math.ceil(Math.abs(currentLbs - goalLbs) / 1))
+    // Projected date: 0.28 kg/day = ~4.32 lbs/week loss rate
+    const weeksNeeded = Math.max(4, Math.ceil(Math.abs(currentLbs - goalLbs) / 4.32))
     const goalDate = new Date()
     goalDate.setDate(goalDate.getDate() + weeksNeeded * 7)
     const monthName = goalDate.toLocaleString('en-US', { month: 'long' })
