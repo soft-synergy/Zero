@@ -317,8 +317,9 @@ function serializePaywall(lang: LangCode): Record<string, string> {
     result[`paywall.fitnessLabels.${k}`] = v
   })
   Object.entries(copy.bmi).forEach(([k, v]) => {
-    result[`paywall.bmi.${k}.title`] = v.title
-    result[`paywall.bmi.${k}.text`] = callFn(v.text as (...args: unknown[]) => string, '__BMI__')
+    const bmiVal = v as { title: string; text: (bmi: string) => string }
+    result[`paywall.bmi.${k}.title`] = bmiVal.title
+    result[`paywall.bmi.${k}.text`] = callFn(bmiVal.text as (...args: unknown[]) => string, '__BMI__')
   })
   stories.forEach((story, i) => {
     result[`paywall.stories.${i}.name`] = story.name
@@ -551,8 +552,8 @@ function buildPaywallCopy(flat: Record<string, string>): Copy {
     storiesHeading: paywall.storiesHeading ?? '',
     storiesSubheading: paywall.storiesSubheading ?? '',
     verifiedCustomer: paywall.verifiedCustomer ?? '',
-    readMore: paywall.readMore ?? 'Read more',
-    readLess: paywall.readLess ?? 'Read less',
+    readMore: paywall.readMore || 'Read more',
+    readLess: paywall.readLess || 'Read less',
     choosePlanAria: paywall.choosePlanAria ?? '',
     savingsText: paywall.savingsText ?? '',
     trustSecureCheckout: paywall.trustSecureCheckout ?? '',
