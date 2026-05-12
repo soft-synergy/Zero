@@ -104,8 +104,8 @@ export type Copy = {
 export const EN: Copy = {
   plans: [
     { name: "7-day plan", desc: "USD 1.09 / day", badge: null },
-    { name: "1-month plan", desc: "USD 0.61 / day", badge: "Most popular — save over 50%" },
-    { name: "3-month plan", desc: "USD 0.31 / day", badge: "Best value" }
+    { name: "4-week plan", desc: "USD 0.61 / day", badge: "Most popular — save over 50%" },
+    { name: "12-week plan", desc: "USD 0.31 / day", badge: "Best value" }
   ],
   pageTitle: "Your Personalized Zero Carbs Challenge plan is ready",
   pageSub: "Pick the plan that fits you best.",
@@ -187,10 +187,10 @@ export const EN: Copy = {
   trustInstantAccess: "Instant access",
   footerLanguageLabel: "Language",
   secretGiftPill: "Get secret gift!",
-  secretGiftLead: "If you select 3-month plan:",
+  secretGiftLead: "If you select 12-week plan:",
   secretGiftTitle: "Secret gift",
   secretGiftBody: "The Zero Carbs Challenge team wants to support your relationship with food transformation and prepared a secret surprise for you.",
-  giftSectionTitle: "Buy 3 month plan and get",
+  giftSectionTitle: "Buy 12-week plan and get",
   giftSectionHighlight: "SECRET gift",
   giftSectionBody: "The Zero Carbs Challenge team wants to support your relationship with food transformation and prepared a secret surprise for you.",
   guaranteePrefix: "See our",

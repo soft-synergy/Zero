@@ -37,7 +37,7 @@ const PLANS = [
   },
   {
     id: '1m',
-    name: '1-month plan',
+    name: '4-week plan',
     price: 'USD 18.39',
     oldPrice: 'USD 38.99',
     perDay: 'USD 0.61/day',
@@ -48,7 +48,7 @@ const PLANS = [
   },
   {
     id: '3m',
-    name: '3-month plan',
+    name: '12-week plan',
     price: 'USD 28.59',
     oldPrice: 'USD 68.99',
     perDay: 'USD 0.31/day',
@@ -277,7 +277,7 @@ export function PaywallContent({ checkoutSlug = 'checkout' }: { checkoutSlug?: s
 
   const purchaseLegalText = useMemo(() => {
     const selectedPricing = PRICING[lang]?.[selectedPlan.id as '7d'|'1m'|'3m']?.[variant] ?? PRICING.en[selectedPlan.id as '7d'|'1m'|'3m'].base
-    const planLabel = selectedPlan.id === '7d' ? '7-day' : selectedPlan.id === '1m' ? '1-month' : '3-month'
+    const planLabel = selectedPlan.id === '7d' ? '7-day' : selectedPlan.id === '1m' ? '4-week' : '12-week'
     const period = selectedPlan.renewalPeriod
     if (copy.purchaseLegal) {
       return copy.purchaseLegal(selectedPricing.price, selectedPricing.renewalPrice, planLabel, period)
